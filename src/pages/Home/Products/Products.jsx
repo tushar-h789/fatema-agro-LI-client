@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import Product from "./Product"
+import SectionTitle from "../../../components/SectionTitle/SectionTitle"
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -16,13 +17,13 @@ const Products = () => {
 
   return (
     <div className="my-10">
-        <h2 className="text-xl font-bold px-2 md:px-0">সব পণ্য</h2>
+        <SectionTitle title="সকল পণ্য" subTitle='এখানে সকল ধরনের পূর্ণ পাওয়া যায়'></SectionTitle>
         <div className="divider"></div> 
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
             products.map(product => <Product
-              key={product.id}
+              key={product._id}
               product = {product}
             ></Product>)
           }

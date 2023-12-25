@@ -21,10 +21,10 @@ const Navbar = () => {
         <NavLink to="/">হোম</NavLink>
       </li>
       <li className="mx-2">
-        <NavLink to="/">খেজুরের গুড়</NavLink>
+        <NavLink to="/gur">খেজুরের গুড়</NavLink>
       </li>
       <li>
-        <NavLink to="/">সরিষার তেল</NavLink>
+        <NavLink to="/sorisaTel">সরিষার তেল</NavLink>
       </li>
     </>
   );
@@ -39,7 +39,7 @@ const Navbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <button className="btn btn-outline btn-warning">
-              সব ক্যাটাগরী
+              সকল ক্যাটাগরী
             </button>
             {isDropdownVisible && (
               <ul
@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
-      <div className="navbar-end gap-6 hidden lg:block">
+      <div className="navbar-end lg:flex gap-6 hidden lg:block">
         <div className="flex justify-center items-center gap-1">
             <FaPhone className="text-xl"/>
             <p className="font-semibold">+880 1719355375</p>

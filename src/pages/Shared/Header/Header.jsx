@@ -23,9 +23,11 @@ const Header = () => {
           </div>
         </div>
 
-        <div className="flex-none gap-2 lg:w-3/12 mx-auto md:mx-0">
+        <div className="flex justify-end  mx-auto md:mx-0 ">
+          <div className="flex gap-2">
           <button className="btn btn-outline btn-warning">Login</button>
           <button className="btn btn-outline btn-warning">Registration</button>
+          </div>
 
           <div className="dropdown dropdown-end ">
             <div

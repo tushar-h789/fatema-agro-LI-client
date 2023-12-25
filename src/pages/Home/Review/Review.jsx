@@ -5,13 +5,14 @@ import { Navigation } from 'swiper/modules';
 
 // Import Swiper styles
 import 'swiper/css';
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Review = () => {
 
   return (
     <div className="my-10">
       <div>
-        <h2 className="font-bold text-2xl px-2 md:px-0">কাস্টমার রিভিউ</h2>
+        <SectionTitle title='কাস্টমার রিভিউ' subTitle='এখানে কিছু কাস্টমার রিভিউ দেওয়া হলো'></SectionTitle>
         <div className="divider"></div>
       </div>
 
