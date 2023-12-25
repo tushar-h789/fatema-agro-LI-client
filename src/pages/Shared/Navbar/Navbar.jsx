@@ -73,7 +73,7 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
-      <div className="navbar-end gap-6">
+      <div className="navbar-end gap-6 hidden lg:block">
         <div className="flex justify-center items-center gap-1">
             <FaPhone className="text-xl"/>
             <p className="font-semibold">+880 1719355375</p>

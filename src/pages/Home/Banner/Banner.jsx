@@ -45,7 +45,7 @@ const Banner = () => {
       )
 
   return (
-    <div className="flex h-[400px] my-4">
+    <div className="flex  md:h-[400px] h-80 my-4">
         <div ref={sliderRef} className="keen-slider">
         <div className="keen-slider__slide number-slide1 ">
             <img src={banner} alt="banner"  width={1000}/>
@@ -61,7 +61,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="side-img">
+      <div className="side-img hidden lg:block">
         <img src={banner3} alt="" className="rounded-lg"/>
       </div>
     </div>

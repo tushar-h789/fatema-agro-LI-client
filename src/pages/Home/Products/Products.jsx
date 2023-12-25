@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <div className="my-10">
-        <h2 className="text-xl font-bold">সব পণ্য</h2>
+        <h2 className="text-xl font-bold px-2 md:px-0">সব পণ্য</h2>
         <div className="divider"></div> 
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
