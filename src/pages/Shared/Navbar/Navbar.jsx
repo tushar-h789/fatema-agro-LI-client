@@ -17,13 +17,13 @@ const Navbar = () => {
 
   const navOptions = (
     <>
-      <li>
+      <li className="font-roboto">
         <NavLink to="/">হোম</NavLink>
       </li>
-      <li className="mx-2">
+      <li className="mx-2 font-roboto">
         <NavLink to="/gur">খেজুরের গুড়</NavLink>
       </li>
-      <li>
+      <li className="font-roboto">
         <NavLink to="/sorisaTel">সরিষার তেল</NavLink>
       </li>
     </>
@@ -38,7 +38,7 @@ const Navbar = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <button className="btn btn-outline btn-warning">
+            <button className="btn btn-outline btn-warning font-roboto">
               সকল ক্যাটাগরী
             </button>
             {isDropdownVisible && (
@@ -46,7 +46,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="relative menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
-                <div className="p-1 ">
+                <div className="p-1 font-roboto">
                 <li><Link to=''>সরিষা তেল</Link></li>
                 <li className="my-1"><Link to=''>খেজুর গুড় </Link></li>
                 <li ><Link to=''>মসলা- গুড়া মরিচ - হলুদ</Link></li>
@@ -76,11 +76,11 @@ const Navbar = () => {
       <div className="navbar-end lg:flex gap-6 hidden lg:block">
         <div className="flex justify-center items-center gap-1">
             <FaPhone className="text-xl"/>
-            <p className="font-semibold">+880 1719355375</p>
+            <p className="font-semibold font-roboto">+880 1719355375</p>
         </div>
         <div className="flex justify-center items-center gap-1">
             <AiOutlineCustomerService className="text-2xl"/>
-            <h3 className="font-semibold">কাস্টমার কেয়ার</h3>
+            <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-        <footer className="footer p-10 bg-base-200 text-base-content">
+        <footer className="footer p-10 bg-base-200 text-base-content font-roboto">
   <aside>
     <div>
     <img src={logo} height={200} width={200} alt="" />
@@ -41,7 +41,7 @@ const Footer = () => {
   </nav>
 </footer>
 
-<div className="footer footer-center p-4 bg-base-300 text-base-content">
+<div className="footer footer-center p-4 bg-base-300 text-base-content font-roboto">
   <aside>
     <p>Copyright © {currentYear} - All right reserved by Fatema Agro Ltd</p>
   </aside>

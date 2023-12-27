@@ -24,7 +24,7 @@ const Header = () => {
         </div>
 
         <div className="flex justify-end  mx-auto md:mx-0 ">
-          <div className="flex gap-2">
+          <div className="flex gap-2 font-roboto">
           <button className="btn btn-outline btn-warning">Login</button>
           <button className="btn btn-outline btn-warning">Registration</button>
           </div>
@@ -41,7 +41,7 @@ const Header = () => {
             </div>
             <ul
               tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              className="mt-3 font-roboto z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
                 <a className="justify-between">

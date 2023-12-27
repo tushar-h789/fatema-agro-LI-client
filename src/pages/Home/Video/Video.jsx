@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Video = () => {
   return (
     <>
-      <div className="flex gap-4 my-10">
+      <div className="flex gap-4 my-10 font-roboto">
         <div className="w-3/12 hidden lg:block">
           <ul className="menu bg-base-200 w-full rounded-box">
             <li>

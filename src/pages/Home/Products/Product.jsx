@@ -11,12 +11,12 @@ const Product = (params) => {
             className="zoom"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body font-roboto">
           <h2 className="card-title">{title}</h2>
           <p className="font-bold text-orange-500">পরিমানঃ {quantity} কেজি</p>
           <p className="font-bold text-orange-500">দামঃ <strong>৳</strong> {price}</p>
           <div className="my-2">
-            <button className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out">Add To Product</button>
+            <button className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out ">Add To Product</button>
           </div>
         </div>
       </div>

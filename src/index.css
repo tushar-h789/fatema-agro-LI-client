@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* import google font- roboto font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
   .zoom {
     transition: transform .4s;
     margin: 0 auto;

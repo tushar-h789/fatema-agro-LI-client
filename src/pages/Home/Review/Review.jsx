@@ -10,7 +10,7 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 const Review = () => {
 
   return (
-    <div className="my-10">
+    <div className="my-10 font-roboto">
       <div>
         <SectionTitle title='কাস্টমার রিভিউ' subTitle='এখানে কিছু কাস্টমার রিভিউ দেওয়া হলো'></SectionTitle>
         <div className="divider"></div>

@@ -13,7 +13,7 @@ const GurProduct = (params) => {
             className="zoom"
           />
         </figure>
-        <div className="card-body">
+        <div className="card-body font-roboto">
           <h2 className="card-title">{title}</h2>
           <p className="font-bold text-orange-500">পরিমানঃ {quantity} কেজি</p>
           <p className="font-bold text-orange-500">দামঃ <strong>৳</strong> {price}</p>

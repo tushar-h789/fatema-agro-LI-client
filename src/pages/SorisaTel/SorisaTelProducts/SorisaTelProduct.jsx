@@ -4,7 +4,7 @@ const SorisaTelProduct = (params) => {
     const {title, image, price, quantity} = params.item
   return (
     <div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 md:p-0 my-10">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 md:p-0 my-10 font-roboto">
         <figure>
           <img
             src={image}
