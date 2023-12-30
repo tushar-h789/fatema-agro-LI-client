@@ -1,19 +1,12 @@
-import { useEffect, useState } from "react";
 import banner from "../../../assets/Banner/gurBanner.jpg";
 import GurProduct from "./GurProduct";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import useProducts from "../../../hooks/useProducts";
+
 const GurProductsBanner = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        // console.log(data.products);
-        setProducts(data.products);
-      });
-  }, []);
-
+  const [products] = useProducts()
+  // console.log(products);
+  
   //Filter products based on category
   const filteredProducts = products.filter(
     (product) => product.category === "খেজুর গুড়"

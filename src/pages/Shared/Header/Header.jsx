@@ -25,8 +25,12 @@ const Header = () => {
 
         <div className="flex justify-end  mx-auto md:mx-0 ">
           <div className="flex gap-2 font-roboto">
+          <Link to='login'>
           <button className="btn btn-outline btn-warning">Login</button>
+          </Link>
+          <Link to='register'>
           <button className="btn btn-outline btn-warning">Registration</button>
+          </Link>
           </div>
 
           <div className="dropdown dropdown-end ">

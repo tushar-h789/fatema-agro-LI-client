@@ -47,8 +47,8 @@ const Navbar = () => {
                 className="relative menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <div className="p-1 font-roboto">
-                <li><Link to=''>সরিষা তেল</Link></li>
-                <li className="my-1"><Link to=''>খেজুর গুড় </Link></li>
+                <li><Link to='/sorisaTel'>সরিষা তেল</Link></li>
+                <li className="my-1"><Link to='/gur'>খেজুর গুড় </Link></li>
                 <li ><Link to=''>মসলা- গুড়া মরিচ - হলুদ</Link></li>
                 <li className="my-1"><Link to=''>গুড়া</Link></li>
                 <li><Link to=''>ঘি</Link></li>

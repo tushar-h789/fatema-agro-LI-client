@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react"
 import SectionTitle from "../../../components/SectionTitle/SectionTitle"
 import SorisaTelProduct from "./SorisaTelProduct"
+import useProducts from "../../../hooks/useProducts"
 
 const SorisaTelProducts = () => {
-    const [products, setProducts] = useState([])
-
-    useEffect(()=>{
-        fetch('data.json')
-        .then(res => res.json())
-        .then(data =>{
-            // console.log(data.products);
-            setProducts(data.products)
-        })
-    },[])
+    const [products] = useProducts()
 
     const filteredSorisaTel = products.filter(product => product.category === 'সরিষার তেল')
     // console.log(filteredSorisaTel);

@@ -9,8 +9,8 @@ const Products = () => {
     fetch('data.json')
     .then(res => res.json())
     .then(data =>{
-      setProducts(data.products)
-      // console.log(data.products);
+      setProducts(data)
+      console.log(data);
     })
   }, [])
 
