@@ -1,17 +1,37 @@
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Registration = () => {
+  const { createUser } = useContext(AuthContext);
+  // console.log(createUser);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    // createUser(data.email, data.password).then((result) => {
+    //   const loggedUser = result.user;
+    //   console.log(loggedUser);
+    // });
+    createUser(data.email, data.password)
+    .then(result =>{
+      // const loggedUser = result.user;
+      console.log(result);
+    })
+    console.log(data.email);
+  };
 
   return (
     <div>
+      <Helmet>
+        <title>Fatema Agro | Registration</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col w-full">
           <div className="text-center lg:text-left">
@@ -57,7 +77,7 @@ const Registration = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input
-                  type="password"
+                  type="text"
                   {...register("password", {
                     required: true,
                     minLength: 6,
@@ -93,18 +113,18 @@ const Registration = () => {
                 )}
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary text-white font-bold text-lg">
-                  Registration
-                </button>
+                <input
+                  className="btn btn-primary text-white font-bold text-lg"
+                  type="submit"
+                  value="Registration"
+                />
               </div>
             </form>
             <div className="text-center pb-6">
               <Link to="/login">
                 <p>
                   Already have an account? Please{" "}
-                  <span className="font-bold text-orange-500">
-                    Login
-                  </span>
+                  <span className="font-bold text-orange-500">Login</span>
                 </p>
               </Link>
             </div>

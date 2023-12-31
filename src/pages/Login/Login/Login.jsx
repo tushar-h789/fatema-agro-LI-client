@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
@@ -12,30 +13,16 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Fatema Agro | Login</title>
+      </Helmet>
       <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col w-full">
           <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Please Register now!</h1>
+            <h1 className="text-5xl font-bold">Login now!</h1>
           </div>
           <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input
-                  type="text"
-                  placeholder="name"
-                  className="input input-bordered"
-                  {...register("name", { required: true })}
-                />
-                {errors.name && (
-                  <span className="text-white text-md mt-2 rounded-sm px-2 py-1 bg-red-500">
-                    Name is required
-                  </span>
-                )}
-              </div>
-
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -75,7 +62,7 @@ const Login = () => {
                     Password is required
                   </span>
                 )}
-                {errors.password?.type === "minLength" && (
+                {/* {errors.password?.type === "minLength" && (
                   <span className="text-white text-md mt-2 rounded-sm px-2 py-1 bg-red-500">
                     Password must be 6 character
                   </span>
@@ -90,7 +77,7 @@ const Login = () => {
                     Password must be One Upper case, One lower case, One digit,
                     One special character
                   </span>
-                )}
+                )} */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary text-white font-bold text-lg">
@@ -99,12 +86,10 @@ const Login = () => {
               </div>
             </form>
             <div className="text-center pb-6">
-              <Link to="/login">
+              <Link to="/register">
                 <p>
-                  Already have an account? Please{" "}
-                  <span className="font-bold text-orange-500">
-                    Login
-                  </span>
+                  Are not have an account? Please{" "}
+                  <span className="font-bold text-orange-500">Registration</span>
                 </p>
               </Link>
             </div>
