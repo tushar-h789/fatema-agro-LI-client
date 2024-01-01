@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+
 import SectionTitle from "../../../components/SectionTitle/SectionTitle"
-import SorisaTelProduct from "./SorisaTelProduct"
 import useProducts from "../../../hooks/useProducts"
+import FoodCard from "../../../components/FoodCard/FoodCard"
 
 const SorisaTelProducts = () => {
     const [products] = useProducts()
@@ -14,7 +14,7 @@ const SorisaTelProducts = () => {
         <SectionTitle title='সরিষার তেল' subTitle='কাঠের ঘানিতে ভাঙা সরিষার তেল'></SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {
-                filteredSorisaTel.map(item => <SorisaTelProduct key={item._id} item={item}></SorisaTelProduct>)
+                filteredSorisaTel.map(item => <FoodCard key={item._id} item={item}></FoodCard>)
             }
         </div>
     </div>

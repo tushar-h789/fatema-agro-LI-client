@@ -6,7 +6,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { BsFillCartCheckFill } from "react-icons/bs";
 
-
 const Header = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -39,10 +38,12 @@ const Header = () => {
         <div className="flex justify-end  mx-auto md:mx-0 ">
           <div className="flex gap-2 font-roboto">
             <div>
-              <button className="btn">
-              <BsFillCartCheckFill />
-                <div className="badge badge-secondary">+0</div>
-              </button>
+              <Link to="/">
+                <button className="btn">
+                  <BsFillCartCheckFill className="mr-2 text-2xl" />
+                  <div className="badge badge-secondary">+0</div>
+                </button>
+              </Link>
             </div>
             {user ? (
               <button

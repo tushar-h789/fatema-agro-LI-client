@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 
-const Product = (params) => {
-  //   console.log(params.product);
-  const { title, image, price, quantity } = params.product;
+const FoodCard = ({item}) => {
+    const { title, image, price, quantity } = item;
+
+    const handleAddToCart =(item)=>{
+        console.log(item);
+      }
+
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 md:p-0">
+        <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 my-4 md:p-0">
         <Link to="/">
           <figure>
             <img src={image} alt="products" className="zoom" />
@@ -19,13 +23,13 @@ const Product = (params) => {
           </div>
         </Link>
         <div className="my-2">
-          <button className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out ">
+          <button onClick={()=> handleAddToCart(item)} className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out ">
             Add To Product
           </button>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Product;
+export default FoodCard

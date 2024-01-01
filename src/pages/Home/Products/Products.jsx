@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import Product from "./Product"
 import SectionTitle from "../../../components/SectionTitle/SectionTitle"
+import FoodCard from "../../../components/FoodCard/FoodCard"
 
 const Products = () => {
   const [products, setProducts] = useState([])
@@ -10,7 +10,7 @@ const Products = () => {
     .then(res => res.json())
     .then(data =>{
       setProducts(data)
-      console.log(data);
+      // console.log(data);
     })
   }, [])
 
@@ -22,10 +22,10 @@ const Products = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
-            products.map(product => <Product
-              key={product._id}
-              product = {product}
-            ></Product>)
+            products.map(item => <FoodCard
+              key={item._id}
+              item = {item}
+            ></FoodCard>)
           }
         </div>
         
