@@ -1,16 +1,18 @@
-import { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { Link, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Registration = () => {
-  const { createUser } = useContext(AuthContext);
-  // console.log(createUser);
+  const { createUser, logOut, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
@@ -19,12 +21,23 @@ const Registration = () => {
     //   const loggedUser = result.user;
     //   console.log(loggedUser);
     // });
-    createUser(data.email, data.password)
-    .then(result =>{
-      // const loggedUser = result.user;
-      console.log(result);
-    })
-    console.log(data.email);
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+      updateUserProfile(data.name).then(() => {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Registration Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        logOut();
+        setTimeout(() => {
+          navigate("/login");
+        }, 2000);
+      });
+    });
   };
 
   return (

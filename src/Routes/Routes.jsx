@@ -5,6 +5,8 @@ import GurProducts from "../pages/GurProducts/GurProducts/GurProducts";
 import SorisaTel from "../pages/SorisaTel/SorisaTel/SorisaTel";
 import Registration from "../pages/Login/Registration/Registration";
 import Login from "../pages/Login/Login/Login";
+import Cart from "../pages/Shared/Cart/Cart";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +33,10 @@ export const router = createBrowserRouter([
         path: "/sorisaTel",
         element: <SorisaTel />,
       },
+      {
+        path: '/cart',
+        element: <PrivateRoutes><Cart/></PrivateRoutes>
+      }
     ],
   },
 ]);

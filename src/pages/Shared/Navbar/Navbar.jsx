@@ -26,6 +26,9 @@ const Navbar = () => {
       <li className="font-roboto">
         <NavLink to="/sorisaTel">সরিষার তেল</NavLink>
       </li>
+      <li className="font-roboto">
+        <NavLink to="/cart">কার্ড</NavLink>
+      </li>
     </>
   );
 
