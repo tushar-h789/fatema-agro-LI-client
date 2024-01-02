@@ -1,15 +1,61 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import Swal from "sweetalert2";
+import axios from "axios";
 
-const FoodCard = ({item}) => {
-    const { title, image, price, quantity } = item;
+const FoodCard = ({ item }) => {
+  const { title, image, price, quantity, _id } = item;
+  //call useAuth hook
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-    const handleAddToCart =(item)=>{
-        console.log(item);
+  const handleAddToCart = (item) => {
+    // console.log(item, user.email);
+    if (user && user.email) {
+      //TODO: add cart item to the database
+      const cartItem = {
+        productId: _id,
+        email: user.email,
+        title, 
+        image,
+        price
       }
+
+      axios.post('http://localhost:5000/carts', cartItem) 
+      .then(res =>{
+        console.log(res.data);
+        if(res.data.insertedId){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `${title} কার্ডে যোগ হয়েছে`,
+            showConfirmButton: false,
+            timer: 2000
+          });
+        }
+      })
+
+    } else {
+      Swal.fire({
+        title: "You are not Logged In",
+        text: "Please login then add to the cart",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login", {state: {from:location}});
+        }
+      });
+    }
+  };
 
   return (
     <div>
-        <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 my-4 md:p-0">
+      <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 my-4 md:p-0">
         <Link to="/">
           <figure>
             <img src={image} alt="products" className="zoom" />
@@ -23,13 +69,16 @@ const FoodCard = ({item}) => {
           </div>
         </Link>
         <div className="my-2">
-          <button onClick={()=> handleAddToCart(item)} className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out ">
-            Add To Product
+          <button
+            onClick={() => handleAddToCart(item)}
+            className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out "
+          >
+            Add To Cart
           </button>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FoodCard
+export default FoodCard;
