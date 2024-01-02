@@ -5,10 +5,12 @@ import Navbar from "../Navbar/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { BsFillCartCheckFill } from "react-icons/bs";
+import useCart from "../../../hooks/useCart";
 
 const Header = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [cart] = useCart()
   // console.log(updateUserProfile);
   const handleLogOut = () => {
     loading;
@@ -41,7 +43,7 @@ const Header = () => {
               <Link to="/">
                 <button className="btn">
                   <BsFillCartCheckFill className="mr-2 text-2xl" />
-                  <div className="badge badge-secondary">+0</div>
+                  <div className="badge badge-secondary">+{cart.length}</div>
                 </button>
               </Link>
             </div>

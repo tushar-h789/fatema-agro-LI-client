@@ -29,6 +29,9 @@ const Navbar = () => {
       <li className="font-roboto">
         <NavLink to="/cart">কার্ড</NavLink>
       </li>
+      <li className="font-roboto font-bold">
+        <NavLink to="/dashboard/dashboardCart">Dashboard</NavLink>
+      </li>
     </>
   );
 
