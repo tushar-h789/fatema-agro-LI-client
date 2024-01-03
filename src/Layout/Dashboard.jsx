@@ -8,12 +8,13 @@ import {
 } from "react-icons/fa6";
 import DashboardCart from "../pages/Dashboard/DashboardCart/DashboardCart";
 import useCart from "../hooks/useCart";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   const [cart] = useCart();
 
   // TODO: get isAdmin value fro the database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
 
   return (
     <div>

@@ -1,6 +1,5 @@
 [
   {
-    "_id": 1,
     "title": "কাঠের ঘানিতে  ভাঙা সরিষার তেল",
     "rating": 4.5,
     "quantity": 1,
@@ -10,7 +9,6 @@
     "image": "https://i.ibb.co/x1DZP5x/4.png"
   },
   {
-    "_id": 2,
     "title": "কাঠের ঘানিতে  ভাঙা সরিষার তেল",
     "rating": 4.5,
     "quantity": 2,
@@ -20,7 +18,6 @@
     "image": "https://i.ibb.co/PrcRTq9/c.png"
   },
   {
-    "_id": 3,
     "title": "কাঠের ঘানিতে  ভাঙা সরিষার তেল",
     "rating": 4.5,
     "quantity": 5,
@@ -30,7 +27,6 @@
     "image": "https://i.ibb.co/VDgVD89/34.png"
   },
   {
-    "_id": 4,
     "title": "প্রাকৃতিক উপায়ে তৈরী খেজুর গুড়",
     "rating": 5.0,
     "quantity": 1,
@@ -40,7 +36,6 @@
     "image": "https://i.ibb.co/KDhyB7N/gur3.png"
   },
   {
-    "_id": 5,
     "title": "প্রাকৃতিক উপায়ে তৈরী খেজুর গুড়",
     "rating": 5.0,
     "quantity": 2,
@@ -50,7 +45,6 @@
     "image": "https://i.ibb.co/tC8zfyG/gur4.png"
   },
   {
-    "_id": 6,
     "title": "প্রাকৃতিক উপায়ে তৈরী খেজুর গুড়",
     "rating": 5.0,
     "quantity": 5,
@@ -60,7 +54,6 @@
     "image": "https://i.ibb.co/RBFjPcY/gur2.png"
   },
   {
-    "_id": 7,
     "title": "পুরস্কৃত ওটগাও হানি",
     "rating": 4.8,
     "price": 700,
@@ -70,7 +63,6 @@
     "image": "image_url_3.jpg"
   },
   {
-    "_id": 8,
     "title": "স্বাস্থ্যকর ব্রাউন রাইস ফ্লোয়ার",
     "rating": 3.7,
     "price": 300,
@@ -80,7 +72,6 @@
     "image": "image_url_4.jpg"
   },
   {
-    "_id": 9,
     "title": "বাংলাদেশি শোলা মাছ",
     "rating": 4.2,
     "price": 600,
@@ -90,7 +81,6 @@
     "image": "image_url_5.jpg"
   },
   {
-    "_id": 10,
     "title": "সুপারিশযোগ্য গোলাপী আম",
     "rating": 4.6,
     "price": 400,
@@ -100,7 +90,6 @@
     "image": "image_url_6.jpg"
   },
   {
-    "_id": 11,
     "title": "ক্যালিফোর্নিয়ার প্রাকৃতিক শঙ্খ চিংড়ি",
     "rating": 4.3,
     "price": 550,
@@ -110,7 +99,6 @@
     "image": "image_url_7.jpg"
   },
   {
-    "_id": 12,
     "title": "অর্গানিক ব্রোকলি",
     "rating": 4.1,
     "price": 350,

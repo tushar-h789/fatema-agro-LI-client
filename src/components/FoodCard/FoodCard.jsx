@@ -1,13 +1,11 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Swal from "sweetalert2";
-import axios from "axios";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ item }) => {
   const { title, image, price, quantity, _id } = item;
-  // console.log(item);
   //call useAuth hook
   const { user } = useAuth();
   const navigate = useNavigate();
@@ -62,7 +60,7 @@ const FoodCard = ({ item }) => {
   return (
     <div>
       <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 my-4 md:p-0">
-        <Link to="/">
+        <Link to={`/productDetails/${item._id}`}>
           <figure>
             <img src={image} alt="products" className="zoom" />
           </figure>

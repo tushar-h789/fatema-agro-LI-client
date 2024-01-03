@@ -11,6 +11,8 @@ import Dashboard from "../Layout/Dashboard";
 import DashboardCart from "../pages/Dashboard/DashboardCart/DashboardCart";
 import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AllUser from "../pages/Dashboard/AllUser/AllUser";
+import ProductDetails from "../components/ProductDetails/ProductDetails";
+import ProductBuyContact from "../components/ProductDetails/ProductBuyContact";
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +38,15 @@ export const router = createBrowserRouter([
       {
         path: "/sorisaTel",
         element: <SorisaTel />,
+      },
+      {
+        path: '/productDetails/:id',
+        element: <ProductDetails/>,
+        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+      },
+      {
+        path: '/productBuyContact',
+        element: <ProductBuyContact/>
       },
       {
         path: "/cart",
