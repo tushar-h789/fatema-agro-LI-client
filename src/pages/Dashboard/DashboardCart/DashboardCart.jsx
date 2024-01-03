@@ -27,11 +27,11 @@ const DashboardCart = () => {
         axiosSecure.delete(`/carts/${item}`).then((res) => {
           console.log(res);
           if (res.data.deletedCount > 0) {
-            refetch()
+            refetch();
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
-              icon: "success"
+              icon: "success",
             });
           }
         });
@@ -43,7 +43,7 @@ const DashboardCart = () => {
     <>
       <div className="flex justify-evenly p-8">
         <h2 className="text-2xl">Items: {cart.length}</h2>
-        <h2 className="text-2xl">Total Price: {totalPrice} Taka</h2>
+        <h2 className="text-2xl">Total Price: {totalPrice} BDT</h2>
         <button className="btn btn-warning">Pay Naw</button>
       </div>
 
@@ -86,7 +86,7 @@ const DashboardCart = () => {
                     পরিমানঃ {item.quantity} কেজি
                   </span>
                 </td>
-                <td>Taka: {item.price}</td>
+                <td>BDT: {item.price}</td>
                 <th>
                   <button className="btn btn-ghost btn-xs bg-orange-500 hover:bg-orange-700 text-white">
                     <FaEdit className="text-lg " />{" "}
