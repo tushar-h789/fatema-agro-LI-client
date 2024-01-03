@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const {loginUser} = useContext(AuthContext)
@@ -87,22 +88,6 @@ const Login = () => {
                     Password is required
                   </span>
                 )}
-                {/* {errors.password?.type === "minLength" && (
-                  <span className="text-white text-md mt-2 rounded-sm px-2 py-1 bg-red-500">
-                    Password must be 6 character
-                  </span>
-                )}
-                {errors.password?.type === "maxLength" && (
-                  <span className="text-white text-md mt-2 rounded-sm px-2 py-1 bg-red-500">
-                    Password less then 20 character
-                  </span>
-                )}
-                {errors.password?.type === "pattern" && (
-                  <span className="text-white text-md mt-2 rounded-sm px-2 py-1 bg-red-500">
-                    Password must be One Upper case, One lower case, One digit,
-                    One special character
-                  </span>
-                )} */}
               </div>
               <div className="form-control mt-6">
                 <button className="btn btn-primary text-white font-bold text-lg">
@@ -112,11 +97,12 @@ const Login = () => {
             </form>
             <div className="text-center pb-6">
               <Link to="/register">
-                <p>
+                <p className="mb-4">
                   Are not have an account? Please{" "}
                   <span className="font-bold text-orange-500">Registration</span>
                 </p>
               </Link>
+              <SocialLogin/>
             </div>
           </div>
         </div>

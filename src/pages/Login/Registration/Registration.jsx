@@ -4,10 +4,13 @@ import { Helmet } from "react-helmet-async";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import Swal from 'sweetalert2'
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import SocialLogin from "../../../components/SocialLogin/SocialLogin";
 
 const Registration = () => {
   const { createUser, logOut, updateUserProfile } = useContext(AuthContext);
   const navigate = useNavigate();
+  const axiosPublic = useAxiosPublic()
 
   const {
     register,
@@ -25,17 +28,29 @@ const Registration = () => {
       const loggedUser = result.user;
       console.log(loggedUser);
       updateUserProfile(data.name).then(() => {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Registration Successfully",
-          showConfirmButton: false,
-          timer: 1500
-        });
-        logOut();
-        setTimeout(() => {
-          navigate("/login");
-        }, 2000);
+        //create user entry in the database
+        const userInfo ={
+          name: data.name,
+          email: data.email
+        }
+        axiosPublic.post('/users', userInfo)
+        .then(res =>{
+          console.log(res.data);
+          if(res.data.insertedId){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Registration Successfully",
+              showConfirmButton: false,
+              timer: 1500
+            });
+            logOut();
+            setTimeout(() => {
+              navigate("/login");
+            }, 2000);
+          }
+        })
+        
       });
     });
   };
@@ -135,11 +150,12 @@ const Registration = () => {
             </form>
             <div className="text-center pb-6">
               <Link to="/login">
-                <p>
+                <p className="mb-4">
                   Already have an account? Please{" "}
                   <span className="font-bold text-orange-500">Login</span>
                 </p>
               </Link>
+            <SocialLogin />
             </div>
           </div>
         </div>

@@ -2,18 +2,19 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa6";
-
+import useAuth from "../../../hooks/useAuth";
 
 const Navbar = () => {
-    const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const { user } = useAuth();
 
-    const handleMouseEnter = () => {
-      setDropdownVisible(true);
-    };
-  
-    const handleMouseLeave = () => {
-      setDropdownVisible(false);
-    };
+  const handleMouseEnter = () => {
+    setDropdownVisible(true);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownVisible(false);
+  };
 
   const navOptions = (
     <>
@@ -29,9 +30,11 @@ const Navbar = () => {
       <li className="font-roboto">
         <NavLink to="/cart">কার্ড</NavLink>
       </li>
-      <li className="font-roboto font-bold">
-        <NavLink to="/dashboard/dashboardCart">Dashboard</NavLink>
-      </li>
+      {user && (
+        <li className="font-roboto font-bold">
+          <NavLink to="/dashboard/dashboardCart">Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -53,17 +56,39 @@ const Navbar = () => {
                 className="relative menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
               >
                 <div className="p-1 font-roboto">
-                <li><Link to='/sorisaTel'>সরিষা তেল</Link></li>
-                <li className="my-1"><Link to='/gur'>খেজুর গুড় </Link></li>
-                <li ><Link to=''>মসলা- গুড়া মরিচ - হলুদ</Link></li>
-                <li className="my-1"><Link to=''>গুড়া</Link></li>
-                <li><Link to=''>ঘি</Link></li>
-                <li className="my-1"><Link to=''>মধু</Link></li>
-                <li><Link to=''>আম</Link></li>
-                <li className="my-1"><Link to=''>আচার</Link></li>
-                <li><Link to=''>কুমড়া বড়ি</Link></li>
-                <li className="my-1"><Link to=''>চাল</Link></li>
-                <li><Link to=''>গরু</Link></li>
+                  <li>
+                    <Link to="/sorisaTel">সরিষা তেল</Link>
+                  </li>
+                  <li className="my-1">
+                    <Link to="/gur">খেজুর গুড় </Link>
+                  </li>
+                  <li>
+                    <Link to="">মসলা- গুড়া মরিচ - হলুদ</Link>
+                  </li>
+                  <li className="my-1">
+                    <Link to="">গুড়া</Link>
+                  </li>
+                  <li>
+                    <Link to="">ঘি</Link>
+                  </li>
+                  <li className="my-1">
+                    <Link to="">মধু</Link>
+                  </li>
+                  <li>
+                    <Link to="">আম</Link>
+                  </li>
+                  <li className="my-1">
+                    <Link to="">আচার</Link>
+                  </li>
+                  <li>
+                    <Link to="">কুমড়া বড়ি</Link>
+                  </li>
+                  <li className="my-1">
+                    <Link to="">চাল</Link>
+                  </li>
+                  <li>
+                    <Link to="">গরু</Link>
+                  </li>
                 </div>
               </ul>
             )}
@@ -81,12 +106,12 @@ const Navbar = () => {
       </div>
       <div className="navbar-end lg:flex gap-6 hidden lg:block">
         <div className="flex justify-center items-center gap-1">
-            <FaPhone className="text-xl"/>
-            <p className="font-semibold font-roboto">+880 1719355375</p>
+          <FaPhone className="text-xl" />
+          <p className="font-semibold font-roboto">+880 1719355375</p>
         </div>
         <div className="flex justify-center items-center gap-1">
-            <AiOutlineCustomerService className="text-2xl"/>
-            <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
+          <AiOutlineCustomerService className="text-2xl" />
+          <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
         </div>
       </div>
     </div>

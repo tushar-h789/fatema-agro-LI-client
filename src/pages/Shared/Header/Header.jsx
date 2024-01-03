@@ -40,7 +40,7 @@ const Header = () => {
         <div className="flex justify-end  mx-auto md:mx-0 ">
           <div className="flex gap-2 font-roboto">
             <div>
-              <Link to="/">
+              <Link to="/dashboard/dashboardCart">
                 <button className="btn">
                   <BsFillCartCheckFill className="mr-2 text-2xl" />
                   <div className="badge badge-secondary">+{cart.length}</div>
@@ -70,7 +70,7 @@ const Header = () => {
 
           <div>
             <h2 className="font-bold text-lg mx-2">
-              {user ? user.displayName : "Guest"}
+              {user && user.displayName}
             </h2>
           </div>
 
@@ -81,7 +81,13 @@ const Header = () => {
               className="btn btn-ghost btn-circle avatar"
             >
               <div className="w-10 rounded-full">
+              {
+                user 
+                ?
+                <img alt="profile" src={user.photoURL || profile} />
+                :
                 <img alt="profile image default" src={profile} />
+              }
               </div>
             </div>
             <ul
