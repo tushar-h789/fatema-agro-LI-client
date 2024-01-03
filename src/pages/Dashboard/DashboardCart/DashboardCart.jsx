@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const DashboardCart = () => {
   const [cart, refetch] = useCart();
@@ -44,7 +45,9 @@ const DashboardCart = () => {
       <div className="flex justify-evenly p-8">
         <h2 className="text-2xl">Items: {cart.length}</h2>
         <h2 className="text-2xl">Total Price: {totalPrice} BDT</h2>
+        <Link to='/productBuyContact'>
         <button className="btn btn-warning">Pay Naw</button>
+        </Link>
       </div>
 
       <div className="overflow-x-auto">
