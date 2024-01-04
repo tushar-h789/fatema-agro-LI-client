@@ -19,6 +19,8 @@ import UsersContactList from "../pages/Dashboard/UsersContactList/UsersContactLi
 import OrderList from "../pages/Dashboard/OrderList/OrderList";
 import AddItem from "../pages/Dashboard/AddItem/AddItem";
 import AdminRoute from "./AdminRoute";
+import ManageItem from "../pages/Dashboard/ManageItem/ManageItem";
+import UpdatedItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 
 export const router = createBrowserRouter([
   {
@@ -99,6 +101,23 @@ export const router = createBrowserRouter([
             <AddItem />
           </AdminRoute>
         ),
+      },
+      {
+        path: "manageItem",
+        element: (
+          <AdminRoute>
+            <ManageItem />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "updateItem/:id",
+        element: (
+          <AdminRoute>
+            <UpdatedItem/>
+          </AdminRoute>
+        ),
+        loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
       },
       {
         path: "allUser",

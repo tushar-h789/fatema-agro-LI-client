@@ -1,61 +1,68 @@
-import { useForm } from "react-hook-form";
+import { useLoaderData } from "react-router-dom";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
+import { useForm } from "react-hook-form";
 import { FaUtensils } from "react-icons/fa";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 
-const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY
-const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
-const AddItem = () => {
+const UpdateItem = () => {
+  const { title, category, quantity, price, rating, details, _id } =
+    useLoaderData();
+
   const { register, handleSubmit, reset } = useForm();
-  const axiosPublic = useAxiosPublic()
-  const axiosSecure = useAxiosSecure()
+  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
 
-  const onSubmit = async(data) => {
+  const onSubmit = async (data) => {
     console.log(data);
     //image upload to imgbb and then get an url
-    const imageFile = {image: data.image[0]}
+    const imageFile = { image: data.image[0] };
     const res = await axiosPublic.post(image_hosting_api, imageFile, {
       headers: {
-        'content-type' : 'multipart/form-data'
-      }
-    })
+        "content-type": "multipart/form-data",
+      },
+    });
 
-    if(res.data.success){
+    if (res.data.success) {
       //now send the products item data to the server with the image url
-      const productsItem ={
+      const productsItem = {
         title: data.title,
         category: data.category,
         price: parseFloat(data.price),
         quantity: data.quantity,
         rating: data.rating,
         details: data.details,
-        image: res.data.data.display_url
-      }
-      const productRes = await axiosSecure.post('/products', productsItem)
+        image: res.data.data.display_url,
+      };
+      const productRes = await axiosSecure.patch(
+        `/products/${_id}`,
+        productsItem
+      );
       console.log(productRes.data);
-      if(productRes.data.insertedId){
-        reset()
+      if (productRes.data.modifiedCount > 0) {
+        reset();
         //show success message
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `${data.title} is added to the Products!`,
+          title: `${data.title} is Updated to the Products!`,
           showConfirmButton: false,
-          timer: 1500
+          timer: 1500,
         });
       }
     }
-
-    console.log(res.data);
-
   };
 
   return (
-    <div className="my-4 p-8">
-      <SectionTitle title="Add items" subTitle="What's new?"></SectionTitle>
+    <div className="p-8 ">
+      <SectionTitle
+        title="Update an Item"
+        subTitle="Update this item"
+      ></SectionTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label className="form-control w-full ">
           <div className="label">
@@ -63,6 +70,7 @@ const AddItem = () => {
           </div>
           <input
             {...register("title")}
+            defaultValue={title}
             type="text"
             name="title"
             placeholder="name here"
@@ -78,6 +86,7 @@ const AddItem = () => {
             </div>
             <select
               {...register("category")}
+              defaultValue={category}
               className="select select-bordered w-full"
             >
               <option disabled selected>
@@ -95,6 +104,7 @@ const AddItem = () => {
             </div>
             <input
               {...register("price")}
+              defaultValue={price}
               type="number"
               name="price"
               placeholder="Type here"
@@ -110,6 +120,7 @@ const AddItem = () => {
             </div>
             <input
               {...register("quantity")}
+              defaultValue={quantity}
               type="number"
               name="quantity"
               placeholder="quantity here"
@@ -124,6 +135,7 @@ const AddItem = () => {
             </div>
             <input
               {...register("rating")}
+              defaultValue={rating}
               type="text"
               name="rating"
               placeholder="Type here"
@@ -137,8 +149,9 @@ const AddItem = () => {
             <span className="label-text">Category details*</span>
           </div>
           <textarea
-          {...register('details')}
-          name="details"
+            {...register("details")}
+            defaultValue={details}
+            name="details"
             className="textarea textarea-bordered h-24"
             placeholder="details this category"
           ></textarea>
@@ -151,11 +164,11 @@ const AddItem = () => {
         </label>
 
         <button className="btn bg-gradient-to-r from-orange-500  to-pink-500 text-white w-full btn-outline font-bold text-lg">
-          Add Item <FaUtensils />
+          Update Item <FaUtensils />
         </button>
       </form>
     </div>
   );
 };
 
-export default AddItem;
+export default UpdateItem;

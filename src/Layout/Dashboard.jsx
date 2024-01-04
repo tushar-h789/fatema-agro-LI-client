@@ -1,5 +1,11 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import { FaBookDead, FaHome, FaUsers, FaUtensils } from "react-icons/fa";
+import {
+  FaBookDead,
+  FaHome,
+  FaRegEdit,
+  FaUsers,
+  FaUtensils,
+} from "react-icons/fa";
 import {
   FaBars,
   FaBook,
@@ -54,7 +60,8 @@ const Dashboard = () => {
                 </li>
                 <li className="text-lg font-bold mt-2">
                   <NavLink to="/dashboard/manageItem">
-                    <FaBars className="text-2xl" />Manage Item
+                    <FaBars className="text-2xl" />
+                    Manage Item
                   </NavLink>
                 </li>
                 <li className="text-lg font-bold mt-2">
