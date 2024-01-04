@@ -18,16 +18,16 @@ const Footer = () => {
   </aside> 
   <nav>
     <header className="footer-title font-bold text-lg">কোম্পানী</header> 
-    <Link to='/' className="link link-hover">আমাদের সম্পর্কে</Link>
+    <Link to='/aboutUs' className="link link-hover">আমাদের সম্পর্কে</Link>
     <Link to='/' className="link link-hover">ব্লগ</Link>
     <Link to='/' className="link link-hover">প্রাইভেসি পলিসি</Link>
     <Link to='/' className="link link-hover">পণ্য ফেরত ও রিফান্ড পলিসি</Link>
   </nav> 
   <nav>
     <header className="footer-title font-bold text-lg">সাধারন হেল্প</header> 
-    <Link to='/' className="link link-hover">কাস্টমার কেয়ার</Link>
+    <Link to='/contact' className="link link-hover">কাস্টমার কেয়ার</Link>
     <Link to='/' className="link link-hover">F.A.Qs</Link>
-    <Link to='/' className="link link-hover">যোগাযোগ করুন</Link>
+    <Link to='/contact' className="link link-hover">যোগাযোগ করুন</Link>
   </nav> 
   <nav>
     <header className="footer-title font-bold text-lg">Social</header> 

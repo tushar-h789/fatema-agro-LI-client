@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import FoodCard from "../../../components/FoodCard/FoodCard";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const axiosPublic = useAxiosPublic()
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -13,6 +15,14 @@ const Products = () => {
         // console.log(data);
       });
   }, []);
+
+  // axiosPublic.get('/products')
+  // .then(res =>{
+  //   const products = res.data
+  //   console.log(products);
+  // })
+
+  
 
   return (
     <div className="my-10">

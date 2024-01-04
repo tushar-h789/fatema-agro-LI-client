@@ -24,11 +24,13 @@ const DashboardCart = () => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
+      console.log(result);
       if (result.isConfirmed) {
         axiosSecure.delete(`/carts/${item}`).then((res) => {
           console.log(res);
           if (res.data.deletedCount > 0) {
             refetch();
+            console.log("delete this item");
             Swal.fire({
               title: "Deleted!",
               text: "Your file has been deleted.",
@@ -45,8 +47,8 @@ const DashboardCart = () => {
       <div className="flex justify-evenly p-8">
         <h2 className="text-2xl">Items: {cart.length}</h2>
         <h2 className="text-2xl">Total Price: {totalPrice} BDT</h2>
-        <Link to='/productBuyContact'>
-        <button className="btn btn-warning">Pay Naw</button>
+        <Link to="/productBuyContact">
+          <button className="btn btn-warning">Pay Naw</button>
         </Link>
       </div>
 
@@ -91,9 +93,9 @@ const DashboardCart = () => {
                 </td>
                 <td>BDT: {item.price}</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs bg-orange-500 hover:bg-orange-700 text-white">
+                  {/* <button className="btn btn-ghost btn-xs bg-orange-500 hover:bg-orange-700 text-white">
                     <FaEdit className="text-lg " />{" "}
-                  </button>
+                  </button> */}
                   <button
                     onClick={() => handleDelete(item._id)}
                     className="btn btn-ghost btn-xs bg-red-500 hover:bg-red-700 text-white ml-2"

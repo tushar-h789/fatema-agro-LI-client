@@ -13,6 +13,8 @@ import UserHome from "../pages/Dashboard/UserHome/UserHome";
 import AllUser from "../pages/Dashboard/AllUser/AllUser";
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductBuyContact from "../components/ProductDetails/ProductBuyContact";
+import AboutUs from "../pages/AboutUs/AboutUs";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -47,6 +49,14 @@ export const router = createBrowserRouter([
       {
         path: '/productBuyContact',
         element: <ProductBuyContact/>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs/>
+      },
+      {
+        path: '/contact',
+        element: <Contact/>
       },
       {
         path: "/cart",
