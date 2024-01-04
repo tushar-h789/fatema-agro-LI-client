@@ -3,6 +3,7 @@ import { FaBookDead, FaHome, FaUsers, FaUtensils } from "react-icons/fa";
 import {
   FaBars,
   FaBook,
+  FaBookAtlas,
   FaCartShopping,
   FaFileContract,
 } from "react-icons/fa6";
@@ -59,6 +60,16 @@ const Dashboard = () => {
                 <li className="text-lg font-bold mt-2">
                   <NavLink to="/dashboard/allUser">
                     <FaUsers className="text-2xl" /> All User
+                  </NavLink>
+                </li>
+                <li className="text-lg font-bold mt-2">
+                  <NavLink to="/dashboard/usersContact">
+                    <FaBookAtlas className="text-2xl" /> Users Contact List
+                  </NavLink>
+                </li>
+                <li className="text-lg font-bold mt-2">
+                  <NavLink to="/dashboard/orderList">
+                    <FaBook className="text-2xl" /> Order List
                   </NavLink>
                 </li>
               </>

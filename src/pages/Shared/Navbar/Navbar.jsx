@@ -31,9 +31,6 @@ const Navbar = () => {
         <NavLink to="/cart">কার্ড</NavLink>
       </li>
       <li className="font-roboto font-semibold">
-        <NavLink to="/aboutUs">About Us</NavLink>
-      </li>
-      <li className="font-roboto font-semibold">
         <NavLink to="/contact">Contact</NavLink>
       </li>
       {user && (

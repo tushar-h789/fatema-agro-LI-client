@@ -15,6 +15,10 @@ import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductBuyContact from "../components/ProductDetails/ProductBuyContact";
 import AboutUs from "../pages/AboutUs/AboutUs";
 import Contact from "../pages/Contact/Contact";
+import UsersContactList from "../pages/Dashboard/UsersContactList/UsersContactList";
+import OrderList from "../pages/Dashboard/OrderList/OrderList";
+import AddItem from "../pages/Dashboard/AddItem/AddItem";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -42,21 +46,22 @@ export const router = createBrowserRouter([
         element: <SorisaTel />,
       },
       {
-        path: '/productDetails/:id',
-        element: <ProductDetails/>,
-        loader: ({params})=> fetch(`http://localhost:5000/products/${params.id}`)
+        path: "/productDetails/:id",
+        element: <ProductDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
-        path: '/productBuyContact',
-        element: <ProductBuyContact/>
+        path: "/productBuyContact",
+        element: <ProductBuyContact />,
       },
       {
-        path: '/aboutUs',
-        element: <AboutUs/>
+        path: "/aboutUs",
+        element: <AboutUs />,
       },
       {
-        path: '/contact',
-        element: <Contact/>
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: "/cart",
@@ -70,22 +75,55 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <PrivateRoutes><Dashboard /></PrivateRoutes>,
+    element: (
+      <PrivateRoutes>
+        <Dashboard />
+      </PrivateRoutes>
+    ),
     children: [
+      //normal user route
       {
         path: "dashboardCart",
         element: <DashboardCart />,
       },
       {
-        path: 'userHome',
-        element:<UserHome/>
+        path: "userHome",
+        element: <UserHome />,
       },
 
       // admin routes
       {
-        path: 'allUser', 
-        element: <AllUser/>
-      }
+        path: "addItem",
+        element: (
+          <AdminRoute>
+            <AddItem />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "allUser",
+        element: (
+          <AdminRoute>
+            <AllUser />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "usersContact",
+        element: (
+          <AdminRoute>
+            <UsersContactList />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "orderList",
+        element: (
+          <AdminRoute>
+            <OrderList />
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);

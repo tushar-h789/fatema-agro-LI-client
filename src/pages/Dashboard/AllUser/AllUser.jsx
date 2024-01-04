@@ -3,9 +3,13 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { MdOutlineDeleteOutline } from "react-icons/md";
 import { FaUsers } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAuth from "../../../hooks/useAuth";
+import { useState } from "react";
 
 const AllUser = () => {
   const axiosSecure = useAxiosSecure();
+  const {user} = useAuth()
+  console.log(user);
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
@@ -15,6 +19,7 @@ const AllUser = () => {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,
         },
       });
+      console.log(res.data);
       return res.data;
     },
   });
@@ -27,7 +32,7 @@ const AllUser = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `${user.name} is an Admin now!`,
+          title: `${admin.name} is an Admin now!`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -91,6 +96,7 @@ const AllUser = () => {
                   <button
                     onClick={() => handleMakeAdmin(user)}
                     className="btn btn-error btn-outline text-white"
+                    disabled={user.role === 'admin'}
                   >
                     {user.role === "admin" ? (
                       <p className="text-white">Admin</p>
