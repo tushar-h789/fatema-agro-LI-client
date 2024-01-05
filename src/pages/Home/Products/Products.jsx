@@ -28,7 +28,7 @@ const Products = () => {
     <div className="my-10">
       <SectionTitle
         title="সকল পণ্য"
-        subTitle="এখানে সকল ধরনের পূর্ণ পাওয়া যায়"
+        subTitle="এখানে সকল ধরনের অর্গানিক পূর্ণ পাওয়া যায়"
       ></SectionTitle>
       <div className="divider"></div>
 

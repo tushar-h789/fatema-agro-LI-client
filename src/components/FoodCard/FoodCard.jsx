@@ -59,15 +59,15 @@ const FoodCard = ({ item }) => {
 
   return (
     <div>
-      <div className="card card-compact w-96 bg-base-100 shadow-xl p-2 my-4 md:p-0">
+      <div className="card card-compact w-96  bg-base-100 shadow-xl p-2 my-2 mx-auto md:mx-0 md:p-0">
         <Link to={`/productDetails/${item._id}`}>
-          <figure>
-            <img src={image} alt="products" className="zoom" />
+          <figure className="h-80 rounded-xl">
+            <img src={image} alt="products" className="zoom rounded-xl" />
           </figure>
           <div className="card-body font-roboto">
             <h2 className="card-title">{title}</h2>
-            <p className="font-bold text-orange-500">পরিমানঃ {quantity} কেজি</p>
-            <p className="font-bold text-orange-500">
+            <p className="font-bold ">পরিমানঃ {quantity} কেজি</p>
+            <p className="font-bold ">
               দামঃ <strong>৳</strong> {price}
             </p>
           </div>
@@ -75,9 +75,9 @@ const FoodCard = ({ item }) => {
         <div className="my-2">
           <button
             onClick={handleAddToCart}
-            className="bg-orange-500 py-1 w-full rounded text-white text-lg font-semibold hover:bg-orange-800 hover:transition hover:duration-150 hover:ease-in-out "
+            className="bg-slate-100 py-1 w-full rounded  text-lg font-semibold hover:bg-slate-300 hover:transition hover:duration-200 hover:ease-in-out bottom-0"
           >
-            Add To Cart
+            কার্ডে রাখুন
           </button>
         </div>
       </div>

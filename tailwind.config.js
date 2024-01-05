@@ -10,6 +10,7 @@ export default {
         // 'roboto': ['Roboto Condensed', 'sans-serif']
       }
     },
+    
   },
   plugins: [require("daisyui")],
 }

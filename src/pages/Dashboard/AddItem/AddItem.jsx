@@ -83,8 +83,8 @@ const AddItem = () => {
               <option disabled selected>
                 Select a category
               </option>
-              <option value="gur">গুর</option>
-              <option value="sorisaTel">সরিসার তেল</option>
+              <option value="খেজুর গুড়">খেজুর গুড়</option>
+              <option value="সরিষার তেল">সরিষার তেল</option>
             </select>
           </label>
 

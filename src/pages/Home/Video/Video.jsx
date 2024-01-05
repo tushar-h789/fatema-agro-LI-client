@@ -28,7 +28,7 @@ const Video = () => {
             </li>
           </ul>
         </div>
-        <div className=" lg:w-9/12 ml-2 md:ml-0">
+        <div className=" lg:w-9/12 ml-2 md:ml-0 mx-auto w-full md:w-0 md:mx-0">
           <iframe
             // width="560"
             // height="315"
