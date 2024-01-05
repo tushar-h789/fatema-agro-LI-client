@@ -51,7 +51,7 @@ const Banner = () => {
         <div className="keen-slider__slide number-slide1 ">
           {/* <img src={banner} alt="banner"  width={1000}/> */}
           <div
-            className="hero bg-cover"
+            className="hero bg-cover rounded-xl"
             style={{
               backgroundImage:
                 `url("${banner}")`,

@@ -79,6 +79,11 @@ const Dashboard = () => {
                     <FaBook className="text-2xl" /> Order List
                   </NavLink>
                 </li>
+                <li className="text-lg font-bold mt-2">
+                  <NavLink to="/dashboard/usersQuestion">
+                    <FaBook className="text-2xl" /> Users Question
+                  </NavLink>
+                </li>
               </>
             ) : (
               <>

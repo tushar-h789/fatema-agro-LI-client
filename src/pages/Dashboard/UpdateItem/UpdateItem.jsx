@@ -13,7 +13,7 @@ const UpdateItem = () => {
   const { title, category, quantity, price, rating, details, _id } =
     useLoaderData();
 
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit, reset,formState: { errors }, } = useForm();
   const axiosPublic = useAxiosPublic();
   const axiosSecure = useAxiosSecure();
 
@@ -69,13 +69,18 @@ const UpdateItem = () => {
             <span className="label-text">Name*</span>
           </div>
           <input
-            {...register("title")}
+            {...register("title", { required: true })}
             defaultValue={title}
             type="text"
             name="title"
             placeholder="name here"
             className="input input-bordered w-full "
           />
+          {errors.title && (
+            <span className="text-white bg-red-500 rounded mt-1">
+              Please enter product name !
+            </span>
+          )}
         </label>
 
         <div className="flex gap-6 my-4">
@@ -85,10 +90,15 @@ const UpdateItem = () => {
               <span className="label-text">Category*</span>
             </div>
             <select
-              {...register("category")}
+              {...register("category", { required: true })}
               defaultValue={category}
               className="select select-bordered w-full"
             >
+              {errors.category && (
+                <span className="text-white bg-red-500 rounded mt-1">
+                  Please select your category !
+                </span>
+              )}
               <option disabled selected>
                 Select a category
               </option>
@@ -103,13 +113,18 @@ const UpdateItem = () => {
               <span className="label-text">Price*</span>
             </div>
             <input
-              {...register("price")}
+              {...register("price", { required: true })}
               defaultValue={price}
               type="number"
               name="price"
               placeholder="Type here"
               className="input input-bordered w-full "
             />
+            {errors.price && (
+              <span className="text-white bg-red-500 rounded mt-1">
+                Please enter your price !
+              </span>
+            )}
           </label>
         </div>
         <div className="flex gap-6 my-4">
@@ -119,13 +134,18 @@ const UpdateItem = () => {
               <span className="label-text">Quantity*</span>
             </div>
             <input
-              {...register("quantity")}
+              {...register("quantity", { required: true })}
               defaultValue={quantity}
               type="number"
               name="quantity"
               placeholder="quantity here"
               className="input input-bordered w-full "
             />
+            {errors.quantity && (
+              <span className="text-white bg-red-500 rounded mt-1">
+                Please enter your quantity !
+              </span>
+            )}
           </label>
 
           {/* rating */}
@@ -134,13 +154,18 @@ const UpdateItem = () => {
               <span className="label-text">Rating*</span>
             </div>
             <input
-              {...register("rating")}
+              {...register("rating", { required: true })}
               defaultValue={rating}
               type="text"
               name="rating"
               placeholder="Type here"
               className="input input-bordered w-full "
             />
+            {errors.rating && (
+              <span className="text-white bg-red-500 rounded mt-1">
+                Please enter your rating !
+              </span>
+            )}
           </label>
         </div>
         {/* category details */}
@@ -149,18 +174,28 @@ const UpdateItem = () => {
             <span className="label-text">Category details*</span>
           </div>
           <textarea
-            {...register("details")}
+            {...register("details", { required: true })}
             defaultValue={details}
             name="details"
             className="textarea textarea-bordered h-24"
             placeholder="details this category"
           ></textarea>
+          {errors.details && (
+            <span className="text-white bg-red-500 rounded mt-1">
+              Please enter your rating !
+            </span>
+          )}
           <input
-            {...register("image")}
+            {...register("image", { required: true })}
             name="image"
             type="file"
             className="file-input file-input-bordered w-full max-w-xs my-4"
           />
+          {errors.image && (
+            <span className="text-white bg-red-500 rounded mt-1">
+              Please enter your image !
+            </span>
+          )}
         </label>
 
         <button className="btn bg-gradient-to-r from-orange-500  to-pink-500 text-white w-full btn-outline font-bold text-lg">

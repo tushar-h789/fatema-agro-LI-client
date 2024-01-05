@@ -24,13 +24,13 @@ const Footer = () => {
           <Link to="/aboutUs" className="link link-hover">
             আমাদের সম্পর্কে
           </Link>
-          <Link to="/" className="link link-hover">
+          <Link to="/about" className="link link-hover">
             ব্লগ
           </Link>
-          <Link to="/" className="link link-hover">
+          <Link to="/about" className="link link-hover">
             প্রাইভেসি পলিসি
           </Link>
-          <Link to="/" className="link link-hover">
+          <Link to="/about" className="link link-hover">
             পণ্য ফেরত ও রিফান্ড পলিসি
           </Link>
         </nav>
@@ -41,7 +41,7 @@ const Footer = () => {
           <Link to="/contact" className="link link-hover">
             কাস্টমার কেয়ার
           </Link>
-          <Link to="/" className="link link-hover">
+          <Link to="/contact" className="link link-hover">
             F.A.Qs
           </Link>
           <Link to="/contact" className="link link-hover">
@@ -51,15 +51,13 @@ const Footer = () => {
         <nav>
           <header className="footer-title font-bold text-lg">Social</header>
           <div className="grid grid-flow-col gap-4">
-            <Link to="/">
-              <FaFacebook className="text-3xl" />
-            </Link>
-            <Link to="/">
+            <a target="_blank" href="https://www.facebook.com/fatemaagroo"><FaFacebook className="text-3xl" /></a>
+            <a target="_blank" href='https://www.youtube.com/channel/UCTpYUbjBmx5Z4691_mane6w'>
               <FaYoutube className="text-3xl" />
-            </Link>
-            <Link to="/">
+            </a>
+            <a target="_blank" href="https://wa.me/01719355375">
               <FaWhatsapp className="text-3xl" />
-            </Link>
+            </a>
           </div>
         </nav>
       </footer>

@@ -142,7 +142,7 @@ const Contact = () => {
             />
             {errors.number && (
               <span className="text-white bg-red-500 rounded mt-1">
-                Please enter your phnone number !
+                Please enter your phone number !
               </span>
             )}
           </label>

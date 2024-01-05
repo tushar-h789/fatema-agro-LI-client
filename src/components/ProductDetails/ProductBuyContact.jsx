@@ -46,7 +46,7 @@ const ProductBuyContact = () => {
   };
 
   return (
-    <div>
+    <div className="my-10">
       <h2 className="text-center text-3xl my-4 font-bold">
         ওর্ডার কোনফার্ম করতে নিচের বক্স পূরণ করুন
       </h2>
@@ -61,6 +61,7 @@ const ProductBuyContact = () => {
               name="name"
               placeholder="type your name"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </label>
           <label className="form-control w-full max-w-xs">
@@ -72,6 +73,7 @@ const ProductBuyContact = () => {
               name="email"
               placeholder="type your email"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </label>
         </div>
@@ -86,6 +88,7 @@ const ProductBuyContact = () => {
               name="number"
               placeholder="type your number"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </label>
           <label className="form-control w-full max-w-xs">
@@ -97,6 +100,7 @@ const ProductBuyContact = () => {
               name="quantity"
               placeholder="type quantity"
               className="input input-bordered w-full max-w-xs"
+              required
             />
           </label>
         </div>
@@ -111,6 +115,7 @@ const ProductBuyContact = () => {
               name="address"
               placeholder="address"
               className="input input-bordered w-full "
+              required
             />
           </label>
         </div>
@@ -118,7 +123,7 @@ const ProductBuyContact = () => {
           <input
             type="submit"
             value="ওর্ডার কোনফার্ম করুন"
-            className="btn btn-warning btn-outline w-full max-w-4xl"
+            className="btn btn-outline w-full max-w-4xl"
           />
         </div>
       </form>

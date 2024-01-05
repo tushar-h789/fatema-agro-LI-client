@@ -21,6 +21,7 @@ import AddItem from "../pages/Dashboard/AddItem/AddItem";
 import AdminRoute from "./AdminRoute";
 import ManageItem from "../pages/Dashboard/ManageItem/ManageItem";
 import UpdatedItem from "../pages/Dashboard/UpdateItem/UpdateItem";
+import UsersQuestion from "../pages/Dashboard/UsersQuestion/UsersQuestion";
 
 export const router = createBrowserRouter([
   {
@@ -114,10 +115,11 @@ export const router = createBrowserRouter([
         path: "updateItem/:id",
         element: (
           <AdminRoute>
-            <UpdatedItem/>
+            <UpdatedItem />
           </AdminRoute>
         ),
-        loader: ({params})=>fetch(`http://localhost:5000/products/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "allUser",
@@ -140,6 +142,14 @@ export const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <OrderList />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "UsersQuestion",
+        element: (
+          <AdminRoute>
+            <UsersQuestion />
           </AdminRoute>
         ),
       },
