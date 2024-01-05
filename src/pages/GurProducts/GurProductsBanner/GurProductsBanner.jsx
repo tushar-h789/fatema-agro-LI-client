@@ -18,7 +18,7 @@ const GurProductsBanner = () => {
         <img
           src={banner}
           alt="gur banner"
-          className="h-[400px] w-full rounded-lg"
+          className="md:h-[400px] w-full rounded-lg"
         />
       </div>
 

@@ -74,7 +74,7 @@ const AllUser = () => {
       </div>
 
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr className="text-lg">
@@ -95,13 +95,13 @@ const AllUser = () => {
                 <td>
                   <button
                     onClick={() => handleMakeAdmin(user)}
-                    className="btn btn-error btn-outline text-white"
+                    className="btn btn-warning btn-outline "
                     disabled={user.role === 'admin'}
                   >
                     {user.role === "admin" ? (
-                      <p className="text-white">Admin</p>
+                      <p className="text-slate-950">Admin</p>
                     ) : (
-                      <FaUsers className="text-2xl text-white" />
+                      <FaUsers className="text-2xl " />
                     )}
                   </button>
                 </td>
@@ -111,7 +111,7 @@ const AllUser = () => {
                     className="btn btn-error btn-outline"
                   >
                     {" "}
-                    <MdOutlineDeleteOutline className="text-2xl text-white" />{" "}
+                    <MdOutlineDeleteOutline className="text-2xl " />{" "}
                   </button>
                 </td>
               </tr>

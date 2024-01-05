@@ -45,10 +45,10 @@ const DashboardCart = () => {
   return (
     <>
       <div className="flex justify-evenly p-8">
-        <h2 className="text-2xl">Items: {cart.length}</h2>
-        <h2 className="text-2xl">Total Price: {totalPrice} BDT</h2>
+        <h2 className="md:text-2xl">Items: {cart.length}</h2>
+        <h2 className="md:text-2xl">Total Price: {totalPrice} BDT</h2>
         <Link to="/productBuyContact">
-          <button className="btn btn-warning">Pay Naw</button>
+          <button className="btn btn-warning btn-sm">Pay Naw</button>
         </Link>
       </div>
 

@@ -53,7 +53,7 @@ const ManageItem = () => {
       <div className="my-8">
         <h2 className="text-3xl">Total Item: {products.length}</h2>
         <div className="overflow-x-auto">
-          <table className="table">
+          <table className="table table-zebra">
             {/* head */}
             <thead>
               <tr>
@@ -87,7 +87,7 @@ const ManageItem = () => {
                   <th>
                     <Link to={`/dashboard/updateItem/${product._id}`}>
                       <button className="btn btn-outline btn-warning">
-                        <FaEdit className="text-xl text-white" />
+                        <FaEdit className="text-xl " />
                       </button>
                     </Link>
                   </th>
@@ -96,7 +96,7 @@ const ManageItem = () => {
                       onClick={() => handleDeleteItem(product)}
                       className="btn btn-outline btn-error"
                     >
-                      <MdDelete className="text-xl text-white" />
+                      <MdDelete className="text-xl " />
                     </button>
                   </th>
                 </tr>

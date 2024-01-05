@@ -66,7 +66,13 @@ const Header = () => {
       <div className="navbar bg-base-100 flex flex-col md:flex-row items-center">
         <div className="lg:flex-1 lg:w-3/12 mx-auto md:mx-0">
           <Link to="/">
-            <img src={logo} width={100} height={100} alt="logo" className="rounded" />
+            <img
+              src={logo}
+              width={100}
+              height={100}
+              alt="logo"
+              className="rounded"
+            />
           </Link>
         </div>
 
@@ -92,15 +98,17 @@ const Header = () => {
             </form>
             {filteredProducts.length > 0 && (
               <div
-                className={`absolute bg-slate-700  overflow-scroll overflow-x-hidden mb-0 mt-2 h-32 rounded-lg p-3 z-10 px-4 md:w-96`}
+                className={`absolute bg-slate-300  overflow-scroll overflow-x-hidden mb-0 mt-2 h-40 rounded-lg  z-10  md:w-96`}
               >
                 {filteredProducts.map((product) => (
                   <ul
                     key={product._id}
                     onClick={() => handleProductClick(product._id)}
+                    className="menu bg-slate-200 my-1 rounded-box"
                   >
+                    <li>
                     <Link to={`/productDetails/${product._id}`}>
-                      <div className="flex items-center my-2 gap-2">
+                      <div className="flex items-center ">
                         <img
                           src={product.image}
                           alt=""
@@ -110,7 +118,9 @@ const Header = () => {
                         />
                         <p>{product.title}</p>
                       </div>
+                      
                     </Link>
+                    </li>
                   </ul>
                 ))}
               </div>

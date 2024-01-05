@@ -150,7 +150,7 @@ const AddItem = () => {
           />
         </label>
 
-        <button className="btn bg-gradient-to-r from-orange-500  to-pink-500 text-white w-full btn-outline font-bold text-lg">
+        <button className="btn bg-gradient-to-r w-full btn-outline font-bold text-lg">
           Add Item <FaUtensils />
         </button>
       </form>

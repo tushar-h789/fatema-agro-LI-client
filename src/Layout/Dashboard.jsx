@@ -33,9 +33,9 @@ const Dashboard = () => {
 
           <label
             htmlFor="my-drawer-2"
-            className="btn btn-primary drawer-button lg:hidden"
+            className="btn btn-warning drawer-button lg:hidden"
           >
-            Open drawer
+            Show all menu
           </label>
         </div>
         <div className="drawer-side">
