@@ -5,7 +5,6 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
-  const axiosPublic = useAxiosPublic()
 
   useEffect(() => {
     fetch("http://localhost:5000/products")

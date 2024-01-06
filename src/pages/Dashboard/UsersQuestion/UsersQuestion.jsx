@@ -7,34 +7,37 @@ import Swal from "sweetalert2";
 
 const UsersQuestion = () => {
   const axiosSecure = useAxiosSecure();
-  const [typeAnswer, setTypeAnswer] = useState('')
+  const [typeAnswer, setTypeAnswer] = useState("");
 
   const { data: question = [], refetch } = useQuery({
     queryKey: ["question"],
     queryFn: async () => {
       const res = await axiosSecure.get("/usersQuestion");
-      console.log(res.data);
-      refetch()
       return res.data;
     },
   });
 
-  const handleAnswer = async(item) => {
-    const res = await axiosSecure.patch(`/usersQuestion/${item._id}`, {
-        answer: typeAnswer,
-    })
+  const handleAnswer = async (item) => {
+    const answer = {
+      name: item.name,
+      question: item.question,
+      answer: typeAnswer,
+    };
+    console.log(item);
+    const res = await axiosSecure.patch(`/usersQuestion/${item._id}`, answer);
     console.log(res.data);
-    if(res.data.matchedCount > 0){
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Submit your answer",
-            showConfirmButton: false,
-            timer: 1500
-          });
+    if (res.data.matchedCount > 0) {
+      refetch();
+      setTypeAnswer([]);
+      form.reset()
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Submit your answer",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
-    
-
   };
 
   //   const handleAnswera = async (data) => {
@@ -68,15 +71,20 @@ const UsersQuestion = () => {
         Total Question: {question.length}
       </h2>
       <div>
-      {question.map((item) => (
-            <ul key={item._id}>
-              <li>
-                <div className="border p-1 my-2 bg-slate-100 rounded-lg">
-                  <p className="font-bold">Name: {item.name}</p>
-                  <p><strong>Q:</strong> {item.question}</p>
+        {question.map((item) => (
+          <ul key={item._id}>
+            <li>
+              <div className="border p-1 my-2 bg-slate-100 rounded-lg">
+                <p className="font-bold">Name: {item.name}</p>
+                <p>
+                  <strong>Q:</strong> {item.question}
+                </p>
+                <p>
                   <p>
-                    <p><strong>A: </strong>{item.answer}</p>
-                  
+                    <strong>A: </strong>
+                    {item.answer}
+                  </p>
+
                   <div>
                     <label className="form-control w-full">
                       <div className="label">
@@ -84,7 +92,7 @@ const UsersQuestion = () => {
                       </div>
                       <div>
                         <input
-                        onChange={(e)=>setTypeAnswer(e.target.value)}
+                          onChange={(e) => setTypeAnswer(e.target.value)}
                           type="text"
                           name="question"
                           placeholder="Your question here"
@@ -92,16 +100,20 @@ const UsersQuestion = () => {
                           required
                         />
 
-                        <button onClick={()=>handleAnswer(item)} className="btn btn-outline">Answer</button>
-                        
+                        <button
+                          onClick={() => handleAnswer(item)}
+                          className="btn btn-outline"
+                        >
+                          Answer
+                        </button>
                       </div>
                     </label>
                   </div>
                 </p>
-                </div>
-              </li>
-            </ul>
-          ))}
+              </div>
+            </li>
+          </ul>
+        ))}
         {/* {question.map((item) => (
           <ul key={item._id}>
             <li>
@@ -112,10 +124,10 @@ const UsersQuestion = () => {
                 </p>
                 <p>
                   <strong>A:</strong>
-                  <form onSubmit={handleAnswer}>
+                  <div>
                     <label className="form-control w-full">
                       <div className="label">
-                        <span className="label-text text-lg">Answer</span>
+                        <span className="label-text text-lg">Answerffff</span>
                       </div>
                       <div>
                         <input
@@ -132,7 +144,7 @@ const UsersQuestion = () => {
                         />
                       </div>
                     </label>
-                  </form>
+                  </div>
                 </p>
               </div>
             </li>
