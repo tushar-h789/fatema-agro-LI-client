@@ -2,7 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useState } from "react";
-import { fromJSON } from "postcss";
 import Swal from "sweetalert2";
 
 const UsersQuestion = () => {
@@ -29,7 +28,7 @@ const UsersQuestion = () => {
     if (res.data.matchedCount > 0) {
       refetch();
       setTypeAnswer([]);
-      form.reset()
+      form.reset();
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -39,27 +38,6 @@ const UsersQuestion = () => {
       });
     }
   };
-
-  //   const handleAnswera = async (data) => {
-  //     const questionInfo = {
-  //       name: user.displayName,
-  //       question: data.question,
-  //     };
-
-  //     const res = await axiosPublic.post("/usersQuestion", questionInfo);
-  //     console.log(res.data);
-  //     if (res.data.insertedId) {
-  //       refetch()
-  //       Swal.fire({
-  //         position: "top-end",
-  //         icon: "success",
-  //         title: "Your question submit !",
-  //         showConfirmButton: false,
-  //         timer: 1500,
-  //       });
-  //     }
-  //     reset()
-  //   };
 
   return (
     <div className="p-8">
@@ -79,7 +57,6 @@ const UsersQuestion = () => {
                 <p>
                   <strong>Q:</strong> {item.question}
                 </p>
-                <p>
                   <p>
                     <strong>A: </strong>
                     {item.answer}
@@ -109,47 +86,10 @@ const UsersQuestion = () => {
                       </div>
                     </label>
                   </div>
-                </p>
               </div>
             </li>
           </ul>
         ))}
-        {/* {question.map((item) => (
-          <ul key={item._id}>
-            <li>
-              <div className="border p-1 my-2 bg-slate-100 rounded-lg">
-                <p className="font-bold">Name: {item.name}</p>
-                <p>
-                  <strong>Q:</strong> {item.question}
-                </p>
-                <p>
-                  <strong>A:</strong>
-                  <div>
-                    <label className="form-control w-full">
-                      <div className="label">
-                        <span className="label-text text-lg">Answerffff</span>
-                      </div>
-                      <div>
-                        <input
-                          type="text"
-                          name="question"
-                          placeholder="Your question here"
-                          className="input input-bordered w-full max-w-3xl"
-                        />
-
-                        <input
-                          className="btn btn-outline max-w-sm"
-                          type="submit"
-                          value="Answer"
-                        />
-                      </div>
-                    </label>
-                  </div>
-                </p>
-              </div>
-            </li>
-          </ul>
-        ))} */}
       </div>
     </div>
   );

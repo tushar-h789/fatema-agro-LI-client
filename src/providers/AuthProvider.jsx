@@ -15,12 +15,12 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider()
+const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  const axiosPublic = useAxiosPublic()
+  const axiosPublic = useAxiosPublic();
 
   //create user
   const createUser = (email, password) => {
@@ -34,10 +34,10 @@ const AuthProvider = ({ children }) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  const googleLogin = ()=>{
-    setLoading(true)
-    return signInWithPopup( auth, googleProvider)
-  }
+  const googleLogin = () => {
+    setLoading(true);
+    return signInWithPopup(auth, googleProvider);
+  };
 
   //log out
   const logOut = () => {
@@ -57,26 +57,26 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       // console.log("current user", currentUser);
-      if(currentUser){
+      if (currentUser) {
         //get token and store client
-        const userInfo = {email: currentUser.email}
-        axiosPublic.post('/jwt', userInfo)
-        .then(res =>{
-          // console.log(res.data);
-          if(res.data.token){
-            localStorage.setItem('access-token', res.data.token)
+        const userInfo = { email: currentUser.email };
+        axiosPublic.post("/jwt", userInfo).then((res) => {
+          // console.log('user access token',res.data.token);
+          if (res.data.token) {
+            localStorage.setItem("access-token", res.data.token);
+            setLoading(false);
           }
-        })
-      }else{
+        });
+      } else {
         // TODO: remove token (if token stored in the client side: Local storage, caching in the memory )
-        localStorage.removeItem('access-token')
+        localStorage.removeItem("access-token");
+        setLoading(false);
       }
-      setLoading(false);
     });
     return () => {
       return unsubscribe();
     };
-  }, []);
+  }, [axiosPublic]);
 
   const authInfo = {
     user,

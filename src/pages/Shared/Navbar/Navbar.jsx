@@ -44,15 +44,13 @@ const Navbar = () => {
   return (
     <div className="navbar bg-slate-100 rounded flex items-center">
       <div className="navbar-start flex items-center">
-          <div
-            className="absolute"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button className="btn btn-outline">
-              সকল ক্যাটাগরী
-            </button>
-            <div className="absolute w-52">
+        <div
+          className="absolute"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <button className="btn btn-outline">সকল ক্যাটাগরী</button>
+          <div className="absolute w-52">
             {isDropdownVisible && (
               <ul
                 tabIndex={0}
@@ -95,8 +93,8 @@ const Navbar = () => {
                 </div>
               </ul>
             )}
-            </div>
           </div>
+        </div>
       </div>
 
       <div className="navbar-center hidden lg:flex">
@@ -105,11 +103,15 @@ const Navbar = () => {
       <div className="navbar-end lg:flex gap-6 hidden ">
         <div className="flex justify-center items-center gap-1">
           <FaPhone className="text-xl" />
-          <p className="font-semibold font-roboto">+880 1719355375</p>
+          <a className="font-semibold font-roboto" href="tel:+8801719355375">
+            +8801719355375
+          </a>
         </div>
         <div className="flex justify-center items-center gap-1">
           <AiOutlineCustomerService className="text-2xl" />
+          <Link to='/contact'>
           <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
+          </Link>
         </div>
       </div>
     </div>

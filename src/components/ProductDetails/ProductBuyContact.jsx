@@ -48,7 +48,7 @@ const ProductBuyContact = () => {
   return (
     <div className="my-10">
       <h2 className="text-center text-3xl my-4 font-bold">
-        ওর্ডার কোনফার্ম করতে নিচের বক্স পূরণ করুন
+        ওর্ডার কনফার্ম করতে নিচের বক্স পূরণ করুন
       </h2>
       <form onSubmit={handleOrderConfirm}>
         <div className="flex justify-evenly mt-6">
@@ -122,7 +122,7 @@ const ProductBuyContact = () => {
         <div className="text-center">
           <input
             type="submit"
-            value="ওর্ডার কোনফার্ম করুন"
+            value="ওর্ডার কনফার্ম করুন"
             className="btn btn-outline w-full max-w-4xl"
           />
         </div>

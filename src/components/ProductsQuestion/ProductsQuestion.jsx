@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
+import profile from "../../assets/others/profile.png";
 
 const ProductsQuestion = () => {
   const { title, details, image, price, quantity, rating, _id, category } =
@@ -39,21 +40,20 @@ const ProductsQuestion = () => {
       quantity: quantity,
     };
 
-     axiosPublic.post("/usersQuestion", questionInfo)
-     .then(res =>{
-        console.log(res.data);
-        if (res.data.insertedId) {
-          refetch();
-          reset();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your question submit!",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-     })
+    axiosPublic.post("/usersQuestion", questionInfo).then((res) => {
+      console.log(res.data);
+      if (res.data.insertedId) {
+        refetch();
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your question submit!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
 
   return (
@@ -94,14 +94,27 @@ const ProductsQuestion = () => {
           {filterUsersQuestions.map((userQuestion) => (
             <ul key={userQuestion._id}>
               <li>
-                <div className="border p-1 my-2 bg-slate-100 rounded-lg">
+                <div className="border px-2 py-2 my-2 bg-slate-100 rounded-lg shadow">
                   <p className="font-bold">Name: </p>
-                  <p>
-                    <strong>Q:</strong> {userQuestion.question}
-                  </p>
-                  <p>
+                  <div className="flex items-center gap-2">
+                      <img
+                        alt="profile image default"
+                        src={profile}
+                        className="rounded-full w-10 h-10"
+                      />
+                    <div><strong>
+                      Q:
+                    </strong>{" "}
+                    {userQuestion.question}</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                  <img
+                        alt="profile image default"
+                        src={profile}
+                        className="rounded-full w-10 h-10"
+                      />
                     <strong>A:</strong> {userQuestion.answer}
-                  </p>
+                  </div>
                 </div>
               </li>
             </ul>

@@ -9,7 +9,7 @@ import { useState } from "react";
 const AllUser = () => {
   const axiosSecure = useAxiosSecure();
   const {user} = useAuth()
-  console.log(user);
+  // console.log(user);
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ["user"],
@@ -26,7 +26,7 @@ const AllUser = () => {
 
   const handleMakeAdmin = (admin) => {
     axiosSecure.patch(`/users/admin/${admin._id}`).then((res) => {
-      console.log(res);
+      console.log(res.data);
       if (res.data.matchedCount > 0) {
         refetch();
         Swal.fire({

@@ -2,6 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import { useQuery } from "@tanstack/react-query";
 import { useLoaderData } from "react-router-dom";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import profile from '../../assets/others/profile.png'
 
 const ProductsReviewShow = () => {
   const { title, details, image, price, quantity, rating, _id, category } =
@@ -44,14 +45,10 @@ const ProductsReviewShow = () => {
           {filteredProductReview.map((item) => (
             <ul key={item._id}>
               <li>
-                <div className="my-2 border-2 shadow py-2 flex flex-col">
-                  <div className="flex">
+                <div className="my-2 border-2 shadow py-2 flex flex-col bg-slate-100 rounded-xl">
+                  <div className="flex items-center px-2">
                     <div className="w-10 rounded-full mr-2 ">
-                      <img
-                        alt="Tailwind CSS Navbar component"
-                        src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                        className="rounded-full"
-                      />
+                    <img alt="profile image default" src={profile} className="rounded-full"/>
                     </div>
                     <div>
                       <p className="font-bold">{item.name}</p>

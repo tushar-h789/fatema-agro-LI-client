@@ -92,7 +92,7 @@ const ProductsReview = () => {
           </div>
 
           <input
-            className="btn btn-outline max-w-sm my-2"
+            className="btn btn-outline btn-warning max-w-sm my-2"
             type="submit"
             value="Submit Review"
           />

@@ -1,16 +1,43 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const OrderList = () => {
   const axiosSecure = useAxiosSecure();
 
-  const { data: order = [] } = useQuery({
+  const { data: order = [], refetch } = useQuery({
     queryKey: ["order"],
     queryFn: async () => {
       const res = await axiosSecure.get("/orderConfirm");
+      console.log(res.data);
       return res.data;
     },
   });
+
+  const handleDoneOrder = (item) => {
+    console.log(item);
+    // const confirmOrderInfo ={
+    //   name: item.name,
+    //   email: item.email,
+    //   address: item.address,
+    //   number: item.number,
+    //   quantity: item.quantity
+    // }
+    axiosSecure.patch(`/orderConfirm/${item._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.matchedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
+
   return (
     <div className="p-8">
       <div>
@@ -27,21 +54,35 @@ const OrderList = () => {
               <th>Number</th>
               <th>Quantity</th>
               <th>Address</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            {
-                order.map((item, index )=> <tr key={item._id}>
-                    <th>{index + 1}</th>
-                    <td>{item.name}</td>
-                    <td>{item.email}</td>
-                    <td>{item.number}</td>
-                    <td>{item.quantity}</td>
-                    <td>{item.address}</td>
-                  </tr>)
-            }
-            
+            {order.map((item, index) => (
+              <tr key={item._id}>
+                <th>{index + 1}</th>
+                <td>{item.name}</td>
+                <td>{item.email}</td>
+                <td>{item.number}</td>
+                <td>{item.quantity}</td>
+                <td>{item.address}</td>
+                <td>
+                  <div>
+                    {item.order === "Done" ? (
+                      <button className="btn btn-sm btn-success">Done</button>
+                    ) : (
+                      <button
+                        onClick={() => handleDoneOrder(item)}
+                        className="btn btn-outline btn-primary btn-sm"
+                      >
+                        pending
+                      </button>
+                    )}
+                  </div>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

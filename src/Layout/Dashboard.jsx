@@ -1,11 +1,5 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
-import {
-  FaBookDead,
-  FaHome,
-  FaRegEdit,
-  FaUsers,
-  FaUtensils,
-} from "react-icons/fa";
+import { FaBookDead, FaHome, FaUsers, FaUtensils } from "react-icons/fa";
 import {
   FaBars,
   FaBook,
@@ -13,7 +7,6 @@ import {
   FaCartShopping,
   FaFileContract,
 } from "react-icons/fa6";
-import DashboardCart from "../pages/Dashboard/DashboardCart/DashboardCart";
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
 

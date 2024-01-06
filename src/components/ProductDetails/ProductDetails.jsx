@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa6";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, Navigate, useLoaderData, useLocation } from "react-router-dom";
 import "@smastrom/react-rating/style.css";
 import ProductsReview from "../ProductsReview/ProductsReview";
 import ProductsReviewShow from "../ProductsReview/ProductsReviewShow";
 import ProductsQuestion from "../ProductsQuestion/ProductsQuestion";
+import useAuth from "../../hooks/useAuth";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
   const { title, details, image, price, quantity, rating, _id, category } =
     useLoaderData();
+    const {user} = useAuth()
+    const location = useLocation()
 
  
   // question part end
@@ -31,37 +34,10 @@ const ProductDetails = () => {
   const updatePrice = price * count;
   const updateQuantity = quantity * count;
 
-  // comments part start
-  // const { data: comments = [], refetch } = useQuery({
-  //   queryKey: ["comment"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get(`/products/${_id}/comments`);
-  //     return res.data;
-  //   },
-  // });
-
-  // const { register: commentRegister, handleSubmit: commentSubmit } = useForm();
-  // const handleAddComment = async (commentData) => {
-  //   const newComment = commentData.comment;
-  //   const res = await axiosPublic.post(`/products/${_id}/comments`, {
-  //     text: newComment,
-  //   });
-  //   if (res.data.insertedId) {
-  //     refetch();
-  //     Swal.fire({
-  //       position: "top-end",
-  //       icon: "success",
-  //       title: "Your comment submitted!",
-  //       showConfirmButton: false,
-  //       timer: 1500,
-  //     });
-  //   }
-  // };
-  // comments part end
 
   return (
     <div className="p-8">
-      <div className="flex items-center gap-20">
+      <div className="md:flex items-center gap-20">
         {/* products details part start */}
         <div className="">
           <img
@@ -70,7 +46,7 @@ const ProductDetails = () => {
             className="border border-orange-600 rounded-xl"
           />
         </div>
-        <div>
+        <div className="mt-2 md:mt-0">
           <h3 className="text-2xl font-bold mb-2">{title}</h3>
           <p className="text-lg">
             দামঃ <strong className="">{updatePrice}</strong> টাকা
@@ -98,14 +74,23 @@ const ProductDetails = () => {
             </button>
           </div>
           <div className="flex items-center gap-2">
+            {
+              user 
+              ?
             <Link to="/productBuyContact">
               <button className="btn  btn-outline mt-2 px-14">
                 এখান থেকেই কিনুন
               </button>
             </Link>
+              :
+            <Navigate to="/login" state={{ from: location }} replace>
+              <button className="btn  btn-outline mt-2 px-14">
+                এখান থেকেই কিনুন
+              </button>
+            </Navigate>
+            }
           </div>
         </div>
-
         {/* products details part end */}
       </div>
 

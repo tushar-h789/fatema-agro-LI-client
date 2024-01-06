@@ -82,6 +82,7 @@ const AddItem = () => {
               <span className="label-text">Category*</span>
             </div>
             <select
+            defaultValue='default'
               {...register("category", { required: true })}
               className="select select-bordered w-full"
             >
@@ -90,10 +91,10 @@ const AddItem = () => {
                   Please select your category !
                 </span>
               )}
-              <option disabled selected>
+              <option disabled value='default'>
                 Select a category
               </option>
-              <option value="খেজুর গুড়">খেজুর গুড়</option>
+              <option  value="খেজুর গুড়">খেজুর গুড়</option>
               <option value="সরিষার তেল">সরিষার তেল</option>
             </select>
           </label>
