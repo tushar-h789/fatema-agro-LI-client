@@ -1,6 +1,7 @@
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import useAdmin from "../hooks/useAdmin";
+import loadingImg from "../assets/others/loader3.gif";
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -8,7 +9,7 @@ const AdminRoute = ({ children }) => {
   const location = useLocation();
 
   if (loading || isAdminLoading) {
-    return <progress className="progress w-56"></progress>;
+    return <img src={loadingImg} alt="loading" />;
   }
 
   if (user && isAdmin) {

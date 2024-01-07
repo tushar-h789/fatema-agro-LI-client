@@ -3,10 +3,12 @@ import { Link, NavLink } from "react-router-dom";
 import { AiOutlineCustomerService } from "react-icons/ai";
 import { FaPhone } from "react-icons/fa6";
 import useAuth from "../../../hooks/useAuth";
+import useAdmin from "../../../hooks/useAdmin";
 
 const Navbar = () => {
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const { user } = useAuth();
+  const [isAdmin] = useAdmin();
 
   const handleMouseEnter = () => {
     setDropdownVisible(true);
@@ -33,9 +35,14 @@ const Navbar = () => {
       <li className="font-roboto font-semibold">
         <NavLink to="/contact">Contact</NavLink>
       </li>
-      {user && (
+      {user && isAdmin && (
         <li className="font-roboto font-bold">
-          <NavLink to="/dashboard/dashboardCart">Dashboard</NavLink>
+          <NavLink to="/dashboard/adminHome">Dashboard</NavLink>
+        </li>
+      )}
+      {user && !isAdmin && (
+        <li className="font-roboto font-bold">
+          <NavLink to="/dashboard/userHome">Dashboard</NavLink>
         </li>
       )}
     </>
@@ -109,8 +116,8 @@ const Navbar = () => {
         </div>
         <div className="flex justify-center items-center gap-1">
           <AiOutlineCustomerService className="text-2xl" />
-          <Link to='/contact'>
-          <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
+          <Link to="/contact">
+            <h3 className="font-semibold font-roboto">কাস্টমার কেয়ার</h3>
           </Link>
         </div>
       </div>

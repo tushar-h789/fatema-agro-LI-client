@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import emoji from '../../../assets/emo.png'
 
 const OrderList = () => {
   const axiosSecure = useAxiosSecure();
@@ -17,8 +18,8 @@ const OrderList = () => {
   const handleDoneOrder = (item) => {
     Swal.fire({
       title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
+      text: "You want confirm this order ?",
+      icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
@@ -32,7 +33,7 @@ const OrderList = () => {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Your work has been saved",
+              title: "Your order has been confirmed !",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -74,7 +75,11 @@ const OrderList = () => {
                 <td>
                   <div>
                     {item.order === "Done" ? (
-                      <button className="btn btn-sm btn-success">Done</button>
+                      // <button className="btn btn-sm btn-success">Done</button>
+                      <div className="flex items-center gap-2">
+                        <img src={emoji} alt="done" className="w-8" />
+                        <p className="text-green-500 font-bold ">Done</p>
+                      </div>
                     ) : (
                       <button
                         onClick={() => handleDoneOrder(item)}

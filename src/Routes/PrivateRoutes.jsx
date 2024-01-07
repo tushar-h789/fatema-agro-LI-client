@@ -1,13 +1,14 @@
 
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import loadingImg from '../assets/others/loader3.gif'
 
 const PrivateRoutes = ({ children }) => {
   const { user, loading } = useAuth()
   const location = useLocation();
 
   if (loading) {
-    return <progress className="progress w-56"></progress>;
+    return <img src={loadingImg} alt="loading" className="mx-auto mt-40" />
   }
 
   if (user) {

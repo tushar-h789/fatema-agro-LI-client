@@ -22,11 +22,14 @@ import AdminRoute from "./AdminRoute";
 import ManageItem from "../pages/Dashboard/ManageItem/ManageItem";
 import UpdatedItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 import UsersQuestion from "../pages/Dashboard/UsersQuestion/UsersQuestion";
+import AdminHome from "../pages/Dashboard/AdminHome/AdminHome";
+import Error from "../pages/Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Error/>,
     children: [
       {
         path: "/login",
@@ -86,15 +89,23 @@ export const router = createBrowserRouter([
     children: [
       //normal user route
       {
-        path: "dashboardCart",
-        element: <DashboardCart />,
-      },
-      {
         path: "userHome",
         element: <UserHome />,
       },
+      {
+        path: "dashboardCart",
+        element: <DashboardCart />,
+      },
 
       // admin routes
+      {
+        path: "adminHome",
+        element: (
+          <AdminRoute>
+            <AdminHome />
+          </AdminRoute>
+        ),
+      },
       {
         path: "addItem",
         element: (
