@@ -9,17 +9,7 @@ import useAuth from "../../hooks/useAuth";
 
 const ProductDetails = () => {
   const [count, setCount] = useState(1);
-  const { title, details, image, price, quantity, rating, _id, category } =
-    useLoaderData();
-    const {user} = useAuth()
-    const location = useLocation()
-
- 
-  // question part end
-
-  // review part start
-
-  // review part end
+  const { title, details, image, price, quantity } = useLoaderData();
 
   const handleIncrement = () => {
     setCount(count + 1);
@@ -33,7 +23,6 @@ const ProductDetails = () => {
 
   const updatePrice = price * count;
   const updateQuantity = quantity * count;
-
 
   return (
     <div className="p-8">
@@ -55,7 +44,7 @@ const ProductDetails = () => {
             পরিমানঃ <strong>{updateQuantity} কেজি</strong>
           </p>
 
-          <div className=" mt-10">
+          <div className=" mt-4 md:mt-10">
             <button
               onClick={handleDecrement}
               className="btn btn-sm btn-outline bg-slate-100"
@@ -74,21 +63,11 @@ const ProductDetails = () => {
             </button>
           </div>
           <div className="flex items-center gap-2">
-            {
-              user 
-              ?
             <Link to="/productBuyContact">
               <button className="btn  btn-outline mt-2 px-14 bg-slate-100">
                 এখান থেকেই কিনুন
               </button>
             </Link>
-              :
-            <Navigate to="/login" state={{ from: location }} replace>
-              <button className="btn  btn-outline mt-2 px-14 bg-slate-100">
-                এখান থেকেই কিনুন
-              </button>
-            </Navigate>
-            }
           </div>
         </div>
         {/* products details part end */}

@@ -15,7 +15,7 @@ const ProductsReview = () => {
     const review = form.review.value;
     const name = form.name.value;
     const email = form.email.value;
-    console.log(review, name, email);
+    // console.log(review, name, email);
 
     const usersReviewInfo = {
       name: name,
@@ -26,7 +26,7 @@ const ProductsReview = () => {
       productCategory: category,
     };
 
-    axiosPublic.post("/usersReview", usersReviewInfo).then((res) => {
+    const res = await axiosPublic.post("/usersReview", usersReviewInfo)
       if (res.data.insertedId) {
         refetch();
         form.reset();
@@ -38,7 +38,6 @@ const ProductsReview = () => {
           timer: 1500,
         });
       }
-    });
   };
 
   return (

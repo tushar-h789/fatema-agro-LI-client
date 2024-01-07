@@ -4,7 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 const ProductBuyContact = () => {
   const axiosPublic = useAxiosPublic();
 
-  const handleOrderConfirm = (event) => {
+  const handleOrderConfirm = async(event) => {
     event.preventDefault();
     const form = event.target;
     const name = form.name.value;
@@ -20,7 +20,7 @@ const ProductBuyContact = () => {
       quantity,
       address,
     };
-    axiosPublic.post("/orderConfirm", orderInfo).then((res) => {
+    const res = await axiosPublic.post("/orderConfirm", orderInfo)
       console.log(res.data);
       if (res.data.insertedId) {
         Swal.fire({
@@ -41,7 +41,6 @@ const ProductBuyContact = () => {
           },
         });
       }
-    });
     form.reset();
   };
 

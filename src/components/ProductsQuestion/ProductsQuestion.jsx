@@ -9,7 +9,7 @@ import useAuth from "../../hooks/useAuth";
 
 const ProductsQuestion = () => {
   const { title, quantity } = useLoaderData();
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
 
   const {
     register,
@@ -22,6 +22,7 @@ const ProductsQuestion = () => {
   //fetch questions
   const { data: question = [], refetch } = useQuery({
     queryKey: ["question"],
+    enabled: loading,
     queryFn: async () => {
       const res = await axiosPublic.get("/usersQuestion");
       return res.data;
@@ -31,8 +32,7 @@ const ProductsQuestion = () => {
   const filterUsersQuestions = question.filter(
     (item) => item.name === title && item.quantity === quantity
   );
-  console.log(filterUsersQuestions);
-
+  // console.log(filterUsersQuestions);
   // question part start
   const onSubmit = async (data) => {
     const questionInfo = {
@@ -41,20 +41,19 @@ const ProductsQuestion = () => {
       quantity: quantity,
     };
 
-    axiosPublic.post("/usersQuestion", questionInfo).then((res) => {
-      console.log(res.data);
-      if (res.data.insertedId) {
-        refetch();
-        reset();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your question submit!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
-      }
-    });
+    const res = await axiosPublic.post("/usersQuestion", questionInfo);
+    console.log(res.data);
+    if (res.data.insertedId) {
+      refetch();
+      reset();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your question submit!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (

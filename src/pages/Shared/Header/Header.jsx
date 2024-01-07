@@ -63,15 +63,15 @@ const Header = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100 flex flex-col md:flex-row items-center">
-        <div className="lg:flex-1 lg:w-3/12 mx-auto md:mx-0">
+      <div className="navbar bg-base-100 flex items-center justify-between">
+        <div className="lg:flex-1 lg:w-3/12 ">
           <Link to="/">
             <img
               src={logo}
-              width={100}
-              height={100}
+              // width={100}
+              // height={100}
               alt="logo"
-              className="rounded"
+              className="rounded w-10 md:w-20"
             />
           </Link>
         </div>
@@ -230,14 +230,16 @@ const Header = () => {
                   {/* logOut part end*/}
                 </li>
                 <li>
-                <div className="md:hidden block">
-                <Link to="/dashboard/dashboardCart">
-                  <button className="btn">
-                    <BsFillCartCheckFill className="mr-2 text-2xl" />
-                    <div className="badge badge-secondary">+{cart.length}</div>
-                  </button>
-                </Link>
-              </div>
+                  <div className="md:hidden block">
+                    <Link to="/dashboard/dashboardCart">
+                      <button className="btn">
+                        <BsFillCartCheckFill className="mr-2 text-2xl" />
+                        <div className="badge badge-secondary">
+                          +{cart.length}
+                        </div>
+                      </button>
+                    </Link>
+                  </div>
                 </li>
               </ul>
             </div>

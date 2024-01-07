@@ -57,10 +57,34 @@ const FoodCard = ({ item }) => {
     }
   };
 
+  const handleOpenProduct = () => {
+    if (user) {
+      // If user is logged in, redirect to productDetails page
+      navigate(`/productDetails/${item._id}`);
+    } else {
+      // If user is not logged in, show login prompt
+      Swal.fire({
+        title: "You are not Logged In",
+        text: "Please login then view the product details",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, Login!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          // Pass the current location to redirect back after login
+          navigate("/login", { state: { from: location } } );
+        }
+      });
+    }
+  }
+
   return (
     <div>
       <div className="card card-compact w-96  bg-base-100 shadow-xl p-2 my-2 mx-auto md:mx-0 md:p-0">
-        <Link to={`/productDetails/${item._id}`}>
+        {/* <Link to={`/productDetails/${item._id}`}> */}
+          <div onClick={handleOpenProduct} className="cursor-pointer">
           <figure className="h-80 rounded-xl">
             <img src={image} alt="products" className="zoom rounded-xl" />
           </figure>
@@ -71,7 +95,8 @@ const FoodCard = ({ item }) => {
               দামঃ <strong>৳</strong> {price}
             </p>
           </div>
-        </Link>
+          </div>
+        {/* </Link> */}
         <div className="my-2">
           <button
             onClick={handleAddToCart}
