@@ -35,7 +35,7 @@ const OrderList = () => {
               icon: "success",
               title: "Your order has been confirmed !",
               showConfirmButton: false,
-              timer: 1500,
+              timer: 1500, 
             });
           }
         });

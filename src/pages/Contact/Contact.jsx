@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   const axiosPublic = useAxiosPublic();
@@ -87,6 +88,9 @@ const Contact = () => {
 
   return (
     <div className="my-20 px-4">
+      <Helmet>
+        <title>Fatema Agro | Contact</title>
+      </Helmet>
       <h2 className="text-center text-3xl my-4 font-bold">
         আমাদের সাথে যোগাযোগ করতে ফর্মটি পূরণ করুন
       </h2>

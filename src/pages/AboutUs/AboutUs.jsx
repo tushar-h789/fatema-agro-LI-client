@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import aboutImg from "../../assets/Banner/banner.jpg";
 import aboutImg2 from "../../assets/Banner/banner1.jpg";
 import aboutImg3 from "../../assets/Banner/banner2.jpg";
@@ -6,6 +7,9 @@ import aboutImg4 from "../../assets/Banner/banner3.jpg";
 const AboutUs = () => {
   return (
     <div>
+      <Helmet>
+        <title>Fatema Agro | About</title>
+      </Helmet>
       <div className="mt-8 px-20 ">
         <img src={aboutImg3} alt="" className="rounded-lg h-[500px] mx-auto" />
       </div>

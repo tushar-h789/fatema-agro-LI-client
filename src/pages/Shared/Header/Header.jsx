@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://fatema-agro-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -107,19 +107,18 @@ const Header = () => {
                     className="menu bg-slate-200 my-1 rounded-box"
                   >
                     <li>
-                    <Link to={`/productDetails/${product._id}`}>
-                      <div className="flex items-center ">
-                        <img
-                          src={product.image}
-                          alt=""
-                          width={50}
-                          height={50}
-                          className="rounded-lg"
-                        />
-                        <p>{product.title}</p>
-                      </div>
-                      
-                    </Link>
+                      <Link to={`/productDetails/${product._id}`}>
+                        <div className="flex items-center ">
+                          <img
+                            src={product.image}
+                            alt=""
+                            width={50}
+                            height={50}
+                            className="rounded-lg"
+                          />
+                          <p>{product.title}</p>
+                        </div>
+                      </Link>
                     </li>
                   </ul>
                 ))}

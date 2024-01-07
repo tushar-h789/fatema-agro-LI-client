@@ -7,7 +7,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch("https://fatema-agro-server.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -20,8 +20,6 @@ const Products = () => {
   //   const products = res.data
   //   console.log(products);
   // })
-
-  
 
   return (
     <div className="my-10">

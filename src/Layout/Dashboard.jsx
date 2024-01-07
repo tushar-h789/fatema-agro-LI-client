@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6";
 import useCart from "../hooks/useCart";
 import useAdmin from "../hooks/useAdmin";
+import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
   const [cart] = useCart();
@@ -18,6 +19,9 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Fatema Agro | Dashboard</title>
+      </Helmet>
       <div className="drawer lg:drawer-open">
         <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content ">
