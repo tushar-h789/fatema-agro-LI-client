@@ -47,11 +47,11 @@ const ProductBuyContact = () => {
 
   return (
     <div className="my-10">
-      <h2 className="text-center text-3xl my-4 font-bold">
+      <h2 className="text-center text-3xl my-4 px-8 md:px-0 font-bold">
         ওর্ডার কনফার্ম করতে নিচের বক্স পূরণ করুন
       </h2>
       <form onSubmit={handleOrderConfirm}>
-        <div className="flex justify-evenly mt-6">
+        <div className="flex justify-evenly items-center gap-2 mt-6 px-4 md:px-0">
           <label className="form-control w-full max-w-xs">
             <div className="label">
               <span className="label-text text-lg">নাম</span>
@@ -78,7 +78,7 @@ const ProductBuyContact = () => {
           </label>
         </div>
 
-        <div className="flex justify-evenly my-4">
+        <div className="flex justify-evenly items-center px-4 md:px-0 gap-2 my-4">
           <label className="form-control w-full max-w-xs">
             <div className="label">
               <span className="label-text">নাম্বার</span>
@@ -105,7 +105,7 @@ const ProductBuyContact = () => {
           </label>
         </div>
 
-        <div className="my-4">
+        <div className="my-4 px-4 md:px-0">
           <label className="form-control w-full max-w-4xl mx-auto">
             <div className="label">
               <span className="label-text">আপনার পুরো ঠিকানা</span>
@@ -119,7 +119,7 @@ const ProductBuyContact = () => {
             />
           </label>
         </div>
-        <div className="text-center">
+        <div className="text-center px-12 md:px-0">
           <input
             type="submit"
             value="ওর্ডার কনফার্ম করুন"

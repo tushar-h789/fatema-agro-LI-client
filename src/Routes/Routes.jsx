@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         path: "/productDetails/:id",
         element: <ProductDetails />,
         loader: ({ params }) =>
-          fetch(`https://fatema-agro-server.vercel.app/products/${params.id}`),
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "/productBuyContact",
@@ -130,7 +130,7 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://fatema-agro-server.vercel.app/products/${params.id}`),
+          fetch(`http://localhost:5000/products/${params.id}`),
       },
       {
         path: "allUser",

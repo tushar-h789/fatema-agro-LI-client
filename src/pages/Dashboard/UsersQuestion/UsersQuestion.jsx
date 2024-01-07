@@ -127,7 +127,7 @@ const UsersQuestion = () => {
 
                     <button
                       onClick={() => handleAnswer(item)}
-                      className="btn btn-outline"
+                      className="btn btn-outline mt-2 md:mt-2 md:ml-2 ml-0 "
                     >
                       Answer
                     </button>

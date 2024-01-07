@@ -35,16 +35,18 @@ const Navbar = () => {
       <li className="font-roboto font-semibold">
         <NavLink to="/contact">Contact</NavLink>
       </li>
-      {user && isAdmin && (
-        <li className="font-roboto font-bold">
-          <NavLink to="/dashboard/adminHome">Dashboard</NavLink>
-        </li>
-      )}
-      {user && !isAdmin && (
-        <li className="font-roboto font-bold">
-          <NavLink to="/dashboard/userHome">Dashboard</NavLink>
-        </li>
-      )}
+      <div className="hidden md:block">
+        {user && isAdmin && (
+          <li className="font-roboto font-bold">
+            <NavLink to="/dashboard/adminHome">Dashboard</NavLink>
+          </li>
+        )}
+        {user && !isAdmin && (
+          <li className="font-roboto font-bold">
+            <NavLink to="/dashboard/userHome">Dashboard</NavLink>
+          </li>
+        )}
+      </div>
     </>
   );
 
@@ -57,6 +59,7 @@ const Navbar = () => {
           onMouseLeave={handleMouseLeave}
         >
           <button className="btn btn-outline">সকল ক্যাটাগরী</button>
+
           <div className="absolute w-52">
             {isDropdownVisible && (
               <ul
@@ -102,11 +105,27 @@ const Navbar = () => {
             )}
           </div>
         </div>
+        
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navOptions}</ul>
       </div>
+
+      <div className="md:hidden block navbar-end text-end mr-2">
+          {user && isAdmin && (
+            <button className="font-roboto font-bold btn btn-outline">
+              <NavLink to="/dashboard/adminHome">Dashboard</NavLink>
+            </button>
+          )}
+          {user && !isAdmin && (
+            <button className="font-roboto font-bold">
+              <NavLink to="/dashboard/userHome">Dashboard</NavLink>
+            </button>
+          )}
+        </div>
+
+
       <div className="navbar-end lg:flex gap-6 hidden ">
         <div className="flex justify-center items-center gap-1">
           <FaPhone className="text-xl" />

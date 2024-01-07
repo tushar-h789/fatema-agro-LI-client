@@ -58,7 +58,7 @@ const ProductDetails = () => {
           <div className=" mt-10">
             <button
               onClick={handleDecrement}
-              className="btn btn-sm btn-outline"
+              className="btn btn-sm btn-outline bg-slate-100"
             >
               <FaMinus />{" "}
             </button>
@@ -68,7 +68,7 @@ const ProductDetails = () => {
 
             <button
               onClick={handleIncrement}
-              className="btn btn-sm btn-outline"
+              className="btn btn-sm btn-outline bg-slate-100"
             >
               <FaPlus />{" "}
             </button>
@@ -78,13 +78,13 @@ const ProductDetails = () => {
               user 
               ?
             <Link to="/productBuyContact">
-              <button className="btn  btn-outline mt-2 px-14">
+              <button className="btn  btn-outline mt-2 px-14 bg-slate-100">
                 এখান থেকেই কিনুন
               </button>
             </Link>
               :
             <Navigate to="/login" state={{ from: location }} replace>
-              <button className="btn  btn-outline mt-2 px-14">
+              <button className="btn  btn-outline mt-2 px-14 bg-slate-100">
                 এখান থেকেই কিনুন
               </button>
             </Navigate>
@@ -100,7 +100,7 @@ const ProductDetails = () => {
         <div className="divider"></div>
         <div>
           <h2 className="text-2xl">{title}</h2>
-          <p className="mr-20 my-2">{details}</p>
+          <p className="md:mr-20 my-2">{details}</p>
         </div>
         {/* star review start */}
         <ProductsReviewShow />

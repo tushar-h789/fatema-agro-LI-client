@@ -22,7 +22,7 @@ const Header = () => {
   };
 
   useEffect(() => {
-    fetch("https://fatema-agro-server.vercel.app/products")
+    fetch("http://localhost:5000/products")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -87,7 +87,7 @@ const Header = () => {
                   name="search"
                   value={searchProduct}
                   placeholder="পণ্য সার্চ করুন "
-                  className="input input-bordered  input-warning lg:max-w-lg"
+                  className="input input-bordered input-warning lg:max-w-lg "
                 />
                 <input
                   type="submit"
@@ -130,7 +130,7 @@ const Header = () => {
           <div className="flex justify-end items-center mx-auto md:mx-0 ">
             <div className="flex gap-2 items-center font-roboto">
               {/* cart part start */}
-              <div>
+              <div className="hidden md:block">
                 <Link to="/dashboard/dashboardCart">
                   <button className="btn">
                     <BsFillCartCheckFill className="mr-2 text-2xl" />
@@ -192,7 +192,7 @@ const Header = () => {
                 tabIndex={0}
                 className="mt-3 font-roboto z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52 "
               >
-                <li>
+                <li className="my-2">
                   {/* display name start*/}
                   <div>
                     <h2 className="font-bold  mx-2 block md:hidden">
@@ -202,7 +202,7 @@ const Header = () => {
                   {/* display name end*/}
                 </li>
                 <li className="font-bold">{user?.email}</li>
-                <li>
+                <li className="my-2">
                   {/* logOut part start*/}
                   <div className="block md:hidden">
                     {user ? (
@@ -228,6 +228,16 @@ const Header = () => {
                     )}
                   </div>
                   {/* logOut part end*/}
+                </li>
+                <li>
+                <div className="md:hidden block">
+                <Link to="/dashboard/dashboardCart">
+                  <button className="btn">
+                    <BsFillCartCheckFill className="mr-2 text-2xl" />
+                    <div className="badge badge-secondary">+{cart.length}</div>
+                  </button>
+                </Link>
+              </div>
                 </li>
               </ul>
             </div>

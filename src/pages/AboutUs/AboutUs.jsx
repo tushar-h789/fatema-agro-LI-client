@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet-async";
 import aboutImg from "../../assets/Banner/banner.jpg";
 import aboutImg2 from "../../assets/Banner/banner1.jpg";
 import aboutImg3 from "../../assets/Banner/banner2.jpg";
-import aboutImg4 from "../../assets/Banner/banner3.jpg";
 
 const AboutUs = () => {
   return (
@@ -10,21 +9,21 @@ const AboutUs = () => {
       <Helmet>
         <title>Fatema Agro | About</title>
       </Helmet>
-      <div className="mt-8 px-20 ">
-        <img src={aboutImg3} alt="" className="rounded-lg h-[500px] mx-auto" />
+      <div className="mt-8 px-20 mx-auto">
+        <img src={aboutImg3} alt="" className="rounded-lg md:h-[500px] md:w-[850px] mx-auto" />
       </div>
-      <div className=" flex gap-10 my-8">
-        <div className="h-80 w-1/2 ">
+      <div className=" md:flex gap-10 md:my-8">
+        <div className="md:h-80 md:w-1/2 w-80 mx-auto md:mx-0 my-4 md:my-0">
           <img src={aboutImg} alt="img" className="rounded-2xl" />
         </div>
-        <div className="w-1/2">
+        <div className="md:w-1/2 w-80 mx-auto md:mx-0">
           <img src={aboutImg2} alt="" className="rounded-2xl" />
         </div>
       </div>
 
-      <div className="mb-8">
+      <div className="mb-8 mt-4 p-2">
         <h2 className="text-3xl font-bold">আমাদের সমর্কে</h2>
-        <p className="mr-20 mt-4">
+        <p className="md:mr-20 mr-2 mt-4">
           আমরা গ্রাহগদে অন্যতম খোলা হৃদয়ে আমাদের প্রিয় লক্ষ্য, মানুষের সুস্থতা
           এবং সুখবোধ বৃদ্ধির দিকে এগিয়ে যাচ্ছি। আমাদের খাটি খাবারে মূল্যবান
           অর্গানিক উপাদানগুলির ব্যবহার নিয়ে আমরা সত্যিই গর্বিত এবং সম্মানিত

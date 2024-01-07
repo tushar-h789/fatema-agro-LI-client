@@ -26,8 +26,8 @@ const AdminHome = () => {
         {user?.displayName ? user.displayName : "Back"}
       </h2>
 
-      <div className="my-4">
-        <div className="stats shadow">
+      <div className="my-4 ">
+        <div className="stats shadow ">
           <div className="stat">
             <div className="stat-title">Orders</div>
             <div className="flex flex-row-reverse justify-between">
