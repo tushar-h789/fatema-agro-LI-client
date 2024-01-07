@@ -64,19 +64,19 @@ const Header = () => {
   return (
     <>
       <div className="navbar bg-base-100 flex items-center justify-between">
-        <div className="lg:flex-1 lg:w-3/12 ">
+        <div className="lg:flex-1 lg:w-3/12 ml-2">
           <Link to="/">
             <img
               src={logo}
               // width={100}
               // height={100}
               alt="logo"
-              className="rounded w-10 md:w-20"
+              className="rounded w-14 md:w-24"
             />
           </Link>
         </div>
 
-        <div className="w-3/4">
+        <div className="w-3/4 mr-4">
           {/* search option start */}
           <div className="md:w-6/12 mx-auto md:mx-0 my-3 md:my-0 ">
             <form onSubmit={handleSearch} className="form-control w-full">
