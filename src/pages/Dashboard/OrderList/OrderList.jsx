@@ -15,24 +15,28 @@ const OrderList = () => {
   });
 
   const handleDoneOrder = (item) => {
-    console.log(item);
-    // const confirmOrderInfo ={
-    //   name: item.name,
-    //   email: item.email,
-    //   address: item.address,
-    //   number: item.number,
-    //   quantity: item.quantity
-    // }
-    axiosSecure.patch(`/orderConfirm/${item._id}`).then((res) => {
-      console.log(res.data);
-      if (res.data.matchedCount > 0) {
-        refetch();
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Your work has been saved",
-          showConfirmButton: false,
-          timer: 1500,
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, confirm it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/orderConfirm/${item._id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.matchedCount > 0) {
+            refetch();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your work has been saved",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
         });
       }
     });
